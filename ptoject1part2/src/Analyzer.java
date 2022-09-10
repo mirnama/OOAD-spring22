@@ -6,10 +6,11 @@ public class Analyzer {
     double mean;
     double median;
     double variance, sd,x;
-
+    int n;
     public void analyze(ArrayList<Integer> data){
         for (Integer integer : data) {
             sum += integer;
+            n++;
 
         }
         mean=sum/data.size();
@@ -33,6 +34,21 @@ public class Analyzer {
             }
 
         }
+        int maxCount = 0;
+        int maxFreq = 0;
+        for (int i = 0; i < n; i++) {
+            int count = 0;
+            for (int j = 0; j < n; j++) {
+                if (data.get(i) == data.get(j)) {
+                    count++;
+                }
+            }
+
+            if (count > maxCount) {
+                maxCount = count;
+                maxFreq = data.get(i);
+            }
+        }
 
         variance = (x /data.size());
         sd = Math.sqrt(variance);
@@ -40,7 +56,7 @@ public class Analyzer {
         System.out.println("Variance:  "+variance);
         System.out.println("Maximum Value: "+maxValu);
         System.out.println("Minimum Value:  "+minValu);
-
+        System.out.println("Element occurred the most is : ( "+maxFreq+" ) It occurred: ( "+maxCount+" ) times");
 
 
     }
