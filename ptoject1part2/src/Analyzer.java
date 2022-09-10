@@ -68,3 +68,4 @@ public class Analyzer {
 ////https://www.javatpoint.com/how-to-sort-arraylist-in-java
 ////https://stackoverflow.com/questions/4455873/java-arraylist-to-store-user-input
 //https://www.programiz.com/java-programming/examples/standard-deviation
+//https://www.geeksforgeeks.org/frequent-element-array/

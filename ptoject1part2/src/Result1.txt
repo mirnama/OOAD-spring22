@@ -1,0 +1,18 @@
+Enter you number
+Enters a null input to exit
+1
+3
+4
+5
+6
+
+Numbers entered: [1, 3, 4, 5, 6]
+The mean is: 3.8
+Median:  4.0
+Stander Deviation: 1.7204650534085253
+Variance:  2.96
+Maximum Value: 6
+Minimum Value:  1
+Element occurred the most is : ( 1 ) It occurred: ( 1 ) times
+Good Bye
+
