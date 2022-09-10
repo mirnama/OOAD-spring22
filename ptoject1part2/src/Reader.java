@@ -16,20 +16,16 @@ public class Reader {
 
         while (inp) {
             String nextnum = numInp.nextLine();
-            if (nextnum.isEmpty()){
+            if (nextnum.isEmpty()){ // break the while loop if the input in empty
                 inp = false;
                 continue;
             }
-            int num = Integer.parseInt(nextnum);
+            int num = Integer.parseInt(nextnum); // turn the input from string into integer
 
-            myNum.add(num);
+            myNum.add(num); // add the new entry into the array list
             }
-        System.out.println(myNum);
+        System.out.println("Numbers entered: "+myNum);
         return myNum;
-    }
-    public void printArry(){
-        System.out.println(myNum);
-
     }
 
 }

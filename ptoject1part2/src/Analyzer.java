@@ -20,9 +20,9 @@ public class Analyzer {
         System.out.println("Median:  "+median);
         for (int i =0;  i< data.size();i++){
             x += Math.pow(data.get(i) - mean, 2);
-            System.out.println("x:"+i+"  "+x);
+//            System.out.println("x:"+i+"  "+x);
         }
-        variance = x /data.size();
+        variance = (x /data.size());
 
         sd = Math.sqrt(variance);
         System.out.println("Stander Deviation: "+sd);
