@@ -5,12 +5,16 @@ public class Main {
 
         Brawler b = new Brawler();
         Thief thief = new Thief();
-        System.out.println("Name "+b.getAdventurerName());
+        Orbiter creature = new Orbiter();
+        System.out.println("Adventure Name "+b.getAdventurerName());
 
 //        System.out.printf("Adventure is: %d", b.getAdventurerName());
         System.out.printf("Adventure total is: %d\n",  b.getTotal());
-        System.out.println("Name "+thief.getAdventurerName());
+        System.out.println("Adventure Name "+thief.getAdventurerName());
         System.out.printf("Adventure total is: %d\n",  thief.getTotal());
+        System.out.println("Creature  Name "+creature.getCreatureName());
+        System.out.printf("Creature total is: %d\n",  creature.getTotal());
+
         Game g = new Game();
         if(b.getTotal()< thief.getTotal()){
             System.out.println("the winner is: "+ thief.getAdventurerName());
