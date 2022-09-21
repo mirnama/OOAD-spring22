@@ -5,8 +5,8 @@ public class Room {
 
     private ArrayList<Integer> roomID = new ArrayList<>();
     private boolean isStair;
-    ArrayList<Creature> creaturesInRoom;
-    ArrayList<Adventurer> adventurersInRoom;
+//    ArrayList<Creature> creaturesInRoom;
+    ArrayList<Adventurers> adventurersInRoom;
 
     // constructor that takes in roomID as 3 diff integers
     // sets room ID and the is stair boolean
@@ -23,25 +23,25 @@ public class Room {
     }
     
 
-    public void addCreatureToRoom(Creature newCreature) {
-        this.creaturesInRoom.add(newCreature);
-    }
+//    public void addCreatureToRoom(Creature newCreature) {
+//        this.creaturesInRoom.add(newCreature);
+//    }
 
-    public void addAdventurerToRoom(Adventurer newAdventurer) {
+    public void addAdventurerToRoom(Adventurers newAdventurer) {
         this.adventurersInRoom.add(newAdventurer);
     }
 
-    public void deleteCreatureFromRoom(Creature deleteCreature) {
-        this.creaturesInRoom.remove(deleteCreature);
-    }
+//    public void deleteCreatureFromRoom(Creature deleteCreature) {
+//        this.creaturesInRoom.remove(deleteCreature);
+//    }
 
-    public void deleteAdventurerFromRoom(Adventurer deleteAdventurer) {
+    public void deleteAdventurerFromRoom(Adventurers deleteAdventurer) {
         this.adventurersInRoom.remove(deleteAdventurer);
     }
-    public ArrayList<Creature> getCreatures(){
-        return this.creaturesInRoom;
-    }
-    public ArrayList<Adventurer> getAdventurers(){
+//    public ArrayList<Creature> getCreatures(){
+//        return this.creaturesInRoom;
+//    }
+    public ArrayList<Adventurers> getAdventurers(){
         return this.adventurersInRoom;
     }
 
