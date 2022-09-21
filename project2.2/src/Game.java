@@ -54,10 +54,7 @@ public class Game {
         this.total = dis1+dis2;
 //        System.out.println("public void setTotal "+total);
     }
-//    public int getTotal(){
-//        int tot = dis1+dis2;
-//        return tot;
-//    }
+
 
 
     public int rollTheDice(){

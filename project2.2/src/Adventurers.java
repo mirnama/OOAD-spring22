@@ -3,6 +3,7 @@ import java.util.Random;
 
 public class Adventurers extends Game {
     private String adventurerName;
+    int points;
     private ArrayList<String> adventurerObjec = new ArrayList<>();
 //    Random r = new Random();
     private int dis1,dis2;
