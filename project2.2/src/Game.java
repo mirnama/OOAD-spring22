@@ -5,7 +5,7 @@ public class Game {
 
     ArrayList<Room> Temple= new ArrayList<Room>();
     ArrayList<Creature> Creatures= new ArrayList<Creature>();
-    ArrayList<Adventurer> Adventurers= new ArrayList<Adventurer>();
+    ArrayList<Adventurers> Adventurers= new ArrayList<>();
 //    private String creatureName;
     private int dis1;
     private int dis2;
@@ -14,32 +14,35 @@ public class Game {
 
     private int total;
     Random r = new Random();
-    public class Turn{}
 
-    public class Room{
+//    protected Room getRoom(ArrayList<Integer> currentPosition) {
+//        return null;
+//    }
+
+
+
 
         public ArrayList<Integer> getRoomID() {
             return null;
         }
 
-		public void deleteAdventurerFromRoom(Game.Adventurer tempA) {
+		public void deleteAdventurerFromRoom(Adventurers tempA) {
 		}
 
-        public void addAdventurerToRoom(Game.Adventurer tempA) {
-        }}
-    public class Creature{
+        public void addAdventurerToRoom(Adventurers tempA) {
+        }
+
         private String creatureName;
 
 
 
-
-    public int getTotal() {
+        public int getTotal() {
 //        System.out.println("public void getTotal "+total);
         return total;
     }
 
     public void setTotal(int total) {
-        this.total = total;
+        this.total = rollTheDice();
 
     }
     public void playGame(){
@@ -86,12 +89,13 @@ public class Game {
                 return tempR;
             }
         }
+        return null;
     }
 
 
-    public class Adventurer{
+
 
 		public ArrayList<Integer> getCurrentPosition() {
 			return null;
-		}}
+		}
 }

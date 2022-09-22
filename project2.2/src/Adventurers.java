@@ -6,8 +6,14 @@ public class Adventurers extends Game {
     int points;
     int treasure;
     int damage;
+    ArrayList<Integer> currPosition;
     private final ArrayList<String> adventurerObjec = new ArrayList<>();
-
+    public void setCurrPosition(ArrayList<Integer> newCurr) {
+        currPosition = newCurr;
+    }
+    public ArrayList<Integer> getCurrentPosition() {
+        return currPosition;
+    }
 
     public String getAdventurerName() {
         return adventurerName;
@@ -16,6 +22,7 @@ public class Adventurers extends Game {
     public void setAdventurerName(String adventurerName) {
         this.adventurerName = adventurerName;
     }
+
 
 
 }
