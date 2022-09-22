@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Random;
 
 public class Adventurer extends Game {
     private String adventurerName;
@@ -7,7 +6,7 @@ public class Adventurer extends Game {
 
     ArrayList<Integer> currPosition;
     private ArrayList<String> adventurerObjec = new ArrayList<>();
-  
+
 
     int treasure;
     int damage;
@@ -17,14 +16,12 @@ public class Adventurer extends Game {
     // return dis2;
     // }
 
-    public String getAdventurerName() {
-        return adventurerName;
-    }
+
 
     public ArrayList<Integer> getCurrentPosition() {
         return currPosition;
     }
-
+//
     public void setCurrPosition(ArrayList<Integer> newCurr) {
         currPosition = newCurr;
     }
@@ -35,8 +32,8 @@ public class Adventurer extends Game {
 
     public void move() {
         for (int i = 0; i < this.Adventurers.size(); i++) {
-            Adventurer tempA = this.Adventurers.get(i);
-            Room currRoom = this.getRoom(tempA.getCurrentPosition());
+            Adventurers tempA = this.Adventurers.get(i);
+            Room currRoom =this.getRoom(tempA.getCurrentPosition());
             ArrayList<String> possibleMoves = new ArrayList<>();
             ArrayList<Integer> currXYZ = currRoom.getRoomID();
             // number refers to the directrion one moves
@@ -95,7 +92,7 @@ public class Adventurer extends Game {
             currRoom.deleteAdventurerFromRoom(tempA);
             Room newRoom = this.getRoom(newPos);
             newRoom.addAdventurerToRoom(tempA);
-            
+
 
         }
     }
