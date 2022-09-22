@@ -16,39 +16,9 @@ public class Game {
     Random r = new Random();
     public class Turn{}
     public class Room{}
-    public class Creature{
-        private String creatureName;
-
-        public String getCreatureName() {
-            return creatureName;
-        }
-        public void setCreatureName(String name){
-            this.creatureName = name;
-
-        }
-
-    }
 
 
 
-
-    public void setDis1(int dis1) {
-        dis1 = r.nextInt(6)+1;
-
-        this.dis1 = dis1;
-        System.out.println("dice 1 from rollTheDice1: "+dis1);
-    }
-
-    public int getDis2() {
-        return dis2;
-    }
-
-    public void setDis2(int dis2) {
-        dis2 = r.nextInt(6)+1;
-
-        this.dis2 = dis2;
-        System.out.println("dice 2 from rollTheDice2: "+dis1);
-    }
     public int getTotal() {
 //        System.out.println("public void getTotal "+total);
         return total;
@@ -56,25 +26,35 @@ public class Game {
 
     public void setTotal(int total) {
         this.total = total;
-//        System.out.println("public void setTotal "+total);
+
     }
     public void playGame(){
         Brawler b = new Brawler();
         Thief thief = new Thief();
         Orbiter creature = new Orbiter();
-        System.out.println("Adventure Name "+b.getAdventurerName());
-        System.out.printf("Adventure total is: %d\n",  b.getTotal());
-        System.out.println("Adventure Name "+thief.getAdventurerName());
-        System.out.printf("Adventure total is: %d\n",  thief.getTotal());
-        System.out.println("Creature  Name "+creature.getCreatureName());
-        System.out.printf("Creature total is: %d\n",  creature.getTotal());
-        if(b.getTotal()< thief.getTotal()){
-            System.out.println("the winner is: "+ thief.getAdventurerName());
-        }else if (b.getTotal()>thief.getTotal()){
-            System.out.println("the winner is: "+ b.getAdventurerName());
+
+        System.out.printf("Adventure Name is %s Adventure Dice total is: %d\n", b.getAdventurerName(),  b.getTotal());
+
+        System.out.printf("Adventure name is %s Dice  total is: %d\n", thief.getAdventurerName(),  thief.getTotal());
+
+        System.out.printf("Creature name is %s Dice  total is: %d\n", creature.getCreatureName(),  creature.getTotal());
+        if(b.getTotal()< creature.getTotal()){
+
+            b.points-=1;
+            b.damage+=1;
+            System.out.printf("%s - %d Damage",creature.getCreatureName(), b.damage);
+        }else if (b.getTotal()>creature.getTotal()){
+
+            b.treasure+=1;
+            System.out.printf("%s - %d Treasure",b.getAdventurerName(), b.treasure);
         }
     }
+    public void printReport() {
+        System.out.println("Game Report");
+        playGame();
 
+
+    }
 
 
     public int rollTheDice(){

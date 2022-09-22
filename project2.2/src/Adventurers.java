@@ -5,6 +5,7 @@ public class Adventurers extends Game {
     private String adventurerName;
     int points;
     int treasure;
+    int damage;
     private ArrayList<String> adventurerObjec = new ArrayList<>();
 
 
