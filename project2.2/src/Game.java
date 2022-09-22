@@ -47,21 +47,22 @@ public class Game {
         Thief thief = new Thief();
         Orbiter creature = new Orbiter();
 
-        System.out.printf("Adventure Name is %s Adventure Dice total is: %d\n", b.getAdventurerName(),  b.getTotal());
+//        System.out.printf("Adventure Name is %s Adventure Dice total is: %d\n", b.getAdventurerName(),  b.getTotal());
+//
+//        System.out.printf("Adventure name is %s Dice  total is: %d\n", thief.getAdventurerName(),  thief.getTotal());
+//
+//        System.out.printf("Creature name is %s Dice  total is: %d\n", creature.getCreatureName(),  creature.getTotal());
 
-        System.out.printf("Adventure name is %s Dice  total is: %d\n", thief.getAdventurerName(),  thief.getTotal());
-
-        System.out.printf("Creature name is %s Dice  total is: %d\n", creature.getCreatureName(),  creature.getTotal());
         if(b.getTotal()< creature.getTotal()){
 
             b.points-=1;
             b.damage+=1;
-            System.out.printf("%s - %d Damage",creature.getCreatureName(), b.damage);
+
         }else if (b.getTotal()>creature.getTotal()){
 
             b.treasure+=1;
-            System.out.printf("%s - %d Treasure",b.getAdventurerName(), b.treasure);
         }
+        System.out.printf("%s - %d Treasure - (%d) Damage\n",b.getAdventurerName(),b.damage, b.treasure);
     }
     public void printReport() {
         System.out.println("Game Report");
