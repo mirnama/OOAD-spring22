@@ -4,14 +4,14 @@ import java.util.Random;
 public class Adventurers extends Game {
     private String adventurerName;
     int points;
+
     ArrayList<Integer> currPosition;
     private ArrayList<String> adventurerObjec = new ArrayList<>();
-    // Random r = new Random();
-    // private int dis1,dis2;
+  
 
-    // public int getDis1() {
-    // return dis1;
-    // }
+    int treasure;
+    int damage;
+
 
     // public int getDis2() {
     // return dis2;

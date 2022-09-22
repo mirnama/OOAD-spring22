@@ -15,6 +15,7 @@ public class Game {
     private int total;
     Random r = new Random();
     public class Turn{}
+
     public class Room{
 
         public ArrayList<Integer> getRoomID() {
@@ -29,46 +30,45 @@ public class Game {
     public class Creature{
         private String creatureName;
 
-        public String getCreatureName() {
-            return creatureName;
-        }
-        public void setCreatureName(String name){
-            this.creatureName = name;
-
-        }
-
-    }
 
 
 
-
-    public void setDis1(int dis1) {
-        dis1 = r.nextInt(6)+1;
-
-        this.dis1 = dis1;
-        System.out.println("dice 1 from rollTheDice1: "+dis1);
-    }
-
-    public int getDis2() {
-        return dis2;
-    }
-
-    public void setDis2(int dis2) {
-        dis2 = r.nextInt(6)+1;
-
-        this.dis2 = dis2;
-        System.out.println("dice 2 from rollTheDice2: "+dis1);
-    }
     public int getTotal() {
 //        System.out.println("public void getTotal "+total);
         return total;
     }
 
     public void setTotal(int total) {
-        this.total = dis1+dis2;
-//        System.out.println("public void setTotal "+total);
-    }
+        this.total = total;
 
+    }
+    public void playGame(){
+        Brawler b = new Brawler();
+        Thief thief = new Thief();
+        Orbiter creature = new Orbiter();
+
+        System.out.printf("Adventure Name is %s Adventure Dice total is: %d\n", b.getAdventurerName(),  b.getTotal());
+
+        System.out.printf("Adventure name is %s Dice  total is: %d\n", thief.getAdventurerName(),  thief.getTotal());
+
+        System.out.printf("Creature name is %s Dice  total is: %d\n", creature.getCreatureName(),  creature.getTotal());
+        if(b.getTotal()< creature.getTotal()){
+
+            b.points-=1;
+            b.damage+=1;
+            System.out.printf("%s - %d Damage",creature.getCreatureName(), b.damage);
+        }else if (b.getTotal()>creature.getTotal()){
+
+            b.treasure+=1;
+            System.out.printf("%s - %d Treasure",b.getAdventurerName(), b.treasure);
+        }
+    }
+    public void printReport() {
+        System.out.println("Game Report");
+        playGame();
+
+
+    }
 
 
     public int rollTheDice(){

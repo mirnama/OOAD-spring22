@@ -7,14 +7,14 @@ public class Creature extends Game{
 
     private int dis1,dis2;
 
-    public int getDis1() {
-        return dis1;
-    }
+//    public int getDis1() {
+//        return dis1;
+//    }
 
 
-    public int getDis2() {
-        return dis2;
-    }
+//    public int getDis2() {
+//        return dis2;
+//    }
 
 
     public void setCreatureName(String creatureName) {
