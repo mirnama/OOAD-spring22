@@ -55,8 +55,24 @@ public class Game {
     }
 
     public void setTotal(int total) {
-        this.total = dis1+dis2;
+        this.total = total;
 //        System.out.println("public void setTotal "+total);
+    }
+    public void playGame(){
+        Brawler b = new Brawler();
+        Thief thief = new Thief();
+        Orbiter creature = new Orbiter();
+        System.out.println("Adventure Name "+b.getAdventurerName());
+        System.out.printf("Adventure total is: %d\n",  b.getTotal());
+        System.out.println("Adventure Name "+thief.getAdventurerName());
+        System.out.printf("Adventure total is: %d\n",  thief.getTotal());
+        System.out.println("Creature  Name "+creature.getCreatureName());
+        System.out.printf("Creature total is: %d\n",  creature.getTotal());
+        if(b.getTotal()< thief.getTotal()){
+            System.out.println("the winner is: "+ thief.getAdventurerName());
+        }else if (b.getTotal()>thief.getTotal()){
+            System.out.println("the winner is: "+ b.getAdventurerName());
+        }
     }
 
 
