@@ -3,8 +3,8 @@ import java.util.ArrayList;
 
 public class Room {
 
-    private ArrayList<Integer> roomID = new ArrayList<>();
-    private boolean isStair;
+    private final ArrayList<Integer> roomID = new ArrayList<>();
+    private final boolean isStair;
 //    ArrayList<Creature> creaturesInRoom;
     ArrayList<Adventurers> adventurersInRoom;
 
@@ -14,11 +14,7 @@ public class Room {
         this.roomID.add(i);
         this.roomID.add(j);
         this.roomID.add(k);
-        if (j == 1 & k == 1) {
-            this.isStair = true;
-        } else {
-            this.isStair = false;
-        }
+        this.isStair = j == 1 & k == 1;
 
     }
     
