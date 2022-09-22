@@ -33,11 +33,11 @@ public class Game {
         Thief thief = new Thief();
         Orbiter creature = new Orbiter();
 
-        System.out.printf("Adventure Name is %s Adventure Dice total is: %d\n", b.getAdventurerName(),  b.getTotal());
-
-        System.out.printf("Adventure name is %s Dice  total is: %d\n", thief.getAdventurerName(),  thief.getTotal());
-
-        System.out.printf("Creature name is %s Dice  total is: %d\n", creature.getCreatureName(),  creature.getTotal());
+//        System.out.printf("Adventure Name is %s Adventure Dice total is: %d\n", b.getAdventurerName(),  b.getTotal());
+//
+//        System.out.printf("Adventure name is %s Dice  total is: %d\n", thief.getAdventurerName(),  thief.getTotal());
+//
+//        System.out.printf("Creature name is %s Dice  total is: %d\n", creature.getCreatureName(),  creature.getTotal());
 
         if(b.getTotal()< creature.getTotal()){
 
