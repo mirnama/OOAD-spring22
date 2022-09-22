@@ -1,6 +1,6 @@
 public class Sneaker extends Adventurers{
     public Sneaker() {
-        points=3;
+        setPoints(3);
         damage=0;
 //        setAdventurerName("Sneaker");
 //        setDis1(getDis1());

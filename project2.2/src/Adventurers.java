@@ -3,7 +3,16 @@ import java.util.Random;
 
 public class Adventurers extends Game {
     private String adventurerName;
-    int points;
+
+    public int getPoints() {
+        return points;
+    }
+
+    public void setPoints(int points) {
+        this.points = points;
+    }
+
+    private int points;
     int treasure;
     int damage;
     ArrayList<Integer> currPosition;

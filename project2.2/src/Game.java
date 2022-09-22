@@ -55,18 +55,37 @@ public class Game {
 //        System.out.printf("Adventure name is %s Dice  total is: %d\n", thief.getAdventurerName(),  thief.getTotal());
 //
 //        System.out.printf("Creature name is %s Dice  total is: %d\n", creature.getCreatureName(),  creature.getTotal());
+        for (int i = 0; i< b.getPoints(); i++){
+            int point = b.getPoints();
+            if(b.getTotal()< creature.getTotal()){
 
-        if(b.getTotal()< creature.getTotal()){
+                point-=1;
+                b.setPoints(point);
+                b.damage+=1;
 
-            b.points-=1;
-            b.damage+=1;
+            }else if (b.getTotal()>creature.getTotal()){
 
-        }else if (b.getTotal()>creature.getTotal()){
-
-            b.treasure+=1;
+                b.treasure+=1;
+            }
+            System.out.printf("%s - %d Treasure - (%d) Damage\n",b.getAdventurerName(),b.treasure, b.damage);
         }
-        System.out.printf("%s - %d Treasure - (%d) Damage\n",b.getAdventurerName(),b.damage, b.treasure);
+
+
+
+        if(thief.getTotal()< creature.getTotal()){
+            int point = thief.getPoints();
+            point-=1;
+            thief.setPoints(point);
+            thief.damage+=1;
+
+        }else if (thief.getTotal()>creature.getTotal()){
+
+            thief.treasure+=1;
+        }
+        System.out.printf("%s - %d Treasure - (%d) Damage\n",thief.getAdventurerName(),thief.treasure, thief.damage);
     }
+
+
     public void printReport() {
         System.out.println("Game Report");
         playGame();
