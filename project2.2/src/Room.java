@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 
-public class Room {
+public class Room extends Game{
 
     private ArrayList<Integer> roomID = new ArrayList<>();
     private boolean isStair;

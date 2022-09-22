@@ -15,7 +15,17 @@ public class Game {
     private int total;
     Random r = new Random();
     public class Turn{}
-    public class Room{}
+    public class Room{
+
+        public ArrayList<Integer> getRoomID() {
+            return null;
+        }
+
+		public void deleteAdventurerFromRoom(Game.Adventurer tempA) {
+		}
+
+        public void addAdventurerToRoom(Game.Adventurer tempA) {
+        }}
     public class Creature{
         private String creatureName;
 
@@ -68,7 +78,19 @@ public class Game {
 //        System.out.println("dice 2 from rollTheDice: "+dis2);
         return dis1+dis2;
     }
+    public Room getRoom(ArrayList<Integer> id){
+        for(int i = 0; i < this.Temple.size(); i++){
+            Room tempR= this.Temple.get(i);
+            if(tempR.getRoomID() == id){
+                return tempR;
+            }
+        }
+    }
 
 
-    public class Adventurer{}
+    public class Adventurer{
+
+		public ArrayList<Integer> getCurrentPosition() {
+			return null;
+		}}
 }
