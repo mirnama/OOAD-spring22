@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.Random;
 
-public class Adventurers extends Game {
+public class Adventurer extends Game {
     private String adventurerName;
     int points;
 
