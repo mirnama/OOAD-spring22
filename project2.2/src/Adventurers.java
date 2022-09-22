@@ -6,16 +6,16 @@ public class Adventurers extends Game {
     int points;
     private ArrayList<String> adventurerObjec = new ArrayList<>();
 //    Random r = new Random();
-    private int dis1,dis2;
+//    private int dis1,dis2;
 
-    public int getDis1() {
-        return dis1;
-    }
+//    public int getDis1() {
+//        return dis1;
+//    }
 
 
-    public int getDis2() {
-        return dis2;
-    }
+//    public int getDis2() {
+//        return dis2;
+//    }
 
 
     public String getAdventurerName() {

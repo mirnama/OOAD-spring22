@@ -34,7 +34,9 @@ public class Game {
 
     public void setDis1(int dis1) {
         dis1 = r.nextInt(6)+1;
+
         this.dis1 = dis1;
+        System.out.println("dice 1 from rollTheDice1: "+dis1);
     }
 
     public int getDis2() {
@@ -43,7 +45,9 @@ public class Game {
 
     public void setDis2(int dis2) {
         dis2 = r.nextInt(6)+1;
+
         this.dis2 = dis2;
+        System.out.println("dice 2 from rollTheDice2: "+dis1);
     }
     public int getTotal() {
 //        System.out.println("public void getTotal "+total);
@@ -58,11 +62,13 @@ public class Game {
 
 
     public int rollTheDice(){
-
-        System.out.println("dice 1 from rollTheDice: "+dis1);
-        System.out.println("dice 2 from rollTheDice: "+dis2);
+        dis1 = r.nextInt(6)+1;
+        dis2 = r.nextInt(6)+1;
+//        System.out.println("dice 1 from rollTheDice: "+dis1);
+//        System.out.println("dice 2 from rollTheDice: "+dis2);
         return dis1+dis2;
     }
+
 
     public class Adventurer{}
 }
