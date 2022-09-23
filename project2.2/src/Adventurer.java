@@ -8,8 +8,8 @@ public class Adventurer extends Game {
     private ArrayList<String> adventurerObjec = new ArrayList<>();
 
 
-    int treasure;
-    int damage;
+//    int treasure;
+//    int damage;
 
 
     // public int getDis2() {

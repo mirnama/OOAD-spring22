@@ -4,7 +4,7 @@ import java.util.Random;
 public class Game {
 
     ArrayList<Room> Temple= new ArrayList<Room>();
-    ArrayList<Creature> Creatures= new ArrayList<Creature>();
+    ArrayList<Creature> Creatures= new ArrayList<>();
     ArrayList<Adventurers> Adventurers= new ArrayList<>();
 //    private String creatureName;
     private int dis1;
