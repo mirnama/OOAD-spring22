@@ -15,14 +15,6 @@ public class Turn extends Main {
     public Room getRoomFromTemple(int[] id) {
         for (int i = 0; i < this.Temple.size(); i++) {
             Room r = this.Temple.get(i);
-            // int[] currRoomId = r.getRoomID();
-            // System.out.println("GetRoomFromTemple "+Arrays.toString(r.getRoomID()) +"ID
-            // "+ Arrays.toString(id));
-            // if (currRoomId[0] == id[0] & currRoomId[1] == id[1] & currRoomId[2] == id[2])
-            // {
-            // // System.out.println("found");
-            // return r;
-            // }
             if (Arrays.equals(r.getRoomID(), id)) {
                 return r;
             }
@@ -282,55 +274,121 @@ public class Turn extends Main {
     public void moveCreatures() {
         for (int i = 0; i < this.Creatures.size(); i++) {
             Creature c = this.Creatures.get(i);
+            int[] offsetNorth = { 0, 1, 0 };// 1
+            int[] offsetSouth = { 0, -1, 0 };// 2
+            int[] offsetEast = { 0, 0, 1 };// 3
+            int[] offsetWest = { 0, 0, -1 };// 4
+
             switch (c.getCreatureName()) {
                 case "O":// orbiter hopefully
-                    System.out.println("OClass");
+                    // System.out.println("OClass");
                     System.out.println("orbiter");
-                    
-                    
-                    System.out.println(Arrays.toString(c.getCurrentPosition()));
-                    // Room currentRoom = t.getRoomFromTemple(this.getCurrentPosition());
-                    Room currentRoom = this.findRoom(c);
-                    System.out.println(Arrays.toString(currentRoom.getRoomID()));
-                    int indexForMove = Object.getOuterRooms().indexOf(currentRoom);
-                    if(c.getDirection()){
-                        //adding
-                        int newIndex = indexForMove +1;
-                        if(newIndex < 0){
-                            newIndex = c.getOuterRooms().size();
-                        }
-                        if(newIndex > c.getOuterRooms().size()){
-                            newIndex = 0;
-                        }
-                        currentRoom.deleteCreatureFromRoom(c);
-                        Room nextRoom = c.getOuterRooms().get(newIndex);
-                        nextRoom.addCreatureToRoom(c);
-                        c.setCurrentPosition(nextRoom.getRoomID());
-                    }else{
-                        //subtracting
-                        int newIndex = indexForMove -1;
-                        if(newIndex < 0){
-                            newIndex = c.getOuterRooms().size();
-                        }
-                        if(newIndex > c.getOuterRooms().size()){
-                            newIndex = 0;
-                        }
-                        currentRoom.deleteCreatureFromRoom(c);
-                        Room nextRoom = c.getOuterRooms().get(newIndex);
-                        nextRoom.addCreatureToRoom(c);
-                        c.setCurrentPosition(nextRoom.getRoomID());
+                    int[] orbPosition = c.getCurrentPosition();
+                    Room orbCurrentRoom = this.getRoomFromTemple(orbPosition);
+
+                    boolean easySquare = false;
+                    ArrayList<Integer> possibleValidMoves = new ArrayList<>();
+
+                    if (orbPosition[2] == 1) {
+                        // valid options are w e
+                        possibleValidMoves.add(3);
+                        possibleValidMoves.add(4);
+                        easySquare = true;
+                    } else if (orbPosition[1] == 1) {
+                        // ns
+                        possibleValidMoves.add(1);
+                        possibleValidMoves.add(2);
+
+                        easySquare = true;
                     }
+                    if (!easySquare) {
+                        if (orbPosition[1] == 0) {
+                            possibleValidMoves.add(2);
+
+                        }
+                        if (orbPosition[1] == 2) {
+                            possibleValidMoves.add(1);
+
+                        }
+                        if (orbPosition[2] == 0) {
+                            possibleValidMoves.add(3);
+
+                        }
+                        if (orbPosition[2] == 2) {
+                            possibleValidMoves.add(4);
+
+                        }
+                    }
+                    int randChoice = possibleValidMoves.get(r.nextInt(possibleValidMoves.size()));
+                    switch (randChoice) {
+                        case 1:
+                            // north
+
+                            int[] nextRoomId = this.addIds(orbPosition, offsetNorth);
+                            Room nextRoom = this.getRoomFromTemple(nextRoomId);
+                            // if (nextRoom.getAdventurers().size() > 0) {
+                            // //
+                            // // if an adventurer is there move
+                            c.setCurrentPosition(nextRoomId);
+                            // // leave old room list
+                            orbCurrentRoom.deleteCreatureFromRoom(c);
+                            // // move to new room list
+                            nextRoom.addCreatureToRoom(c);
+                            // }
+                            break;
+                        case 2:
+                            // south
+                            int[] nextRoomIdOS = this.addIds(orbPosition, offsetSouth);
+                            Room nextRoomOS = this.getRoomFromTemple(nextRoomIdOS);
+                            // if (nextRoom.getAdventurers().size() > 0) {
+                            // //
+                            // // if an adventurer is there move
+                            c.setCurrentPosition(nextRoomIdOS);
+                            // // leave old room list
+                            orbCurrentRoom.deleteCreatureFromRoom(c);
+                            // // move to new room list
+                            nextRoomOS.addCreatureToRoom(c);
+                            break;
+                        case 3:
+                            // east
+                            int[] nextRoomIdOE = this.addIds(orbPosition, offsetEast);
+                            Room nextRoomOE = this.getRoomFromTemple(nextRoomIdOE);
+                            // if (nextRoom.getAdventurers().size() > 0) {
+                            // //
+                            // // if an adventurer is there move
+                            c.setCurrentPosition(nextRoomIdOE);
+                            // // leave old room list
+                            orbCurrentRoom.deleteCreatureFromRoom(c);
+                            // // move to new room list
+                            nextRoomOE.addCreatureToRoom(c);
+                            break;
+                        case 4:
+                            // west
+                            int[] nextRoomIdOW = this.addIds(orbPosition, offsetWest);
+                            Room nextRoomOW = this.getRoomFromTemple(nextRoomIdOW);
+                            // if (nextRoom.getAdventurers().size() > 0) {
+                            // //
+                            // // if an adventurer is there move
+                            c.setCurrentPosition(nextRoomIdOW);
+                            // // leave old room list
+                            orbCurrentRoom.deleteCreatureFromRoom(c);
+                            // // move to new room list
+                            nextRoomOW.addCreatureToRoom(c);
+                            break;
+
+                    }
+
                     break;
                 case "S":// seeker
                     // System.out.println("SClass");
                     // goes if adventurer is near
                     // check if in adjacent positions
-                    // System.out.println("Seeker");
+                    System.out.println("Seeker");
 
-                    int[] offsetNorth = { 0, 1, 0 };
-                    int[] offsetSouth = { 0, -1, 0 };
-                    int[] offsetEast = { 0, 0, 1 };
-                    int[] offsetWest = { 0, 0, -1 };
+                    // int[] offsetNorth = { 0, 1, 0 };
+                    // int[] offsetSouth = { 0, -1, 0 };
+                    // int[] offsetEast = { 0, 0, 1 };
+                    // int[] offsetWest = { 0, 0, -1 };
                     // calculate moves
                     // check if valid move
                     int[] currentPosition = c.getCurrentPosition();
@@ -338,10 +396,11 @@ public class Turn extends Main {
                     boolean s = this.isValidMove(currentPosition, offsetSouth);
                     boolean e = this.isValidMove(currentPosition, offsetEast);
                     boolean w = this.isValidMove(currentPosition, offsetWest);
-                    System.out.print(n);
-                    System.out.print(s);
-                    System.out.print(e);
-                    System.out.print(w);
+                    // breaks if i take out the print????
+                    // System.out.print(n);
+                    // System.out.print(s);
+                    // System.out.print(e);
+                    // System.out.print(w);
                     ArrayList<Integer> possibles = new ArrayList<>();
                     if (n) {
                         possibles.add(1);
@@ -355,7 +414,8 @@ public class Turn extends Main {
                     if (w) {
                         possibles.add(4);
                     }
-                    int way = possibles.get(r.nextInt(possibles.size()));
+                    int randindex = r.nextInt(possibles.size());
+                    int way = possibles.get(randindex);
                     Room currRoom = this.getRoomFromTemple(currentPosition);
                     switch (way) {
                         case 1:// north
@@ -419,7 +479,7 @@ public class Turn extends Main {
                     // otherwise doesn't do anything
                     break;
                 case "B": // blinker
-                    // System.out.println("blinkerClass");
+                    System.out.println("blinker");
                     // System.out.println(Arrays.toString(c.getCurrentPosition()));
                     // Room currentRoom = t.findRoom(this);
                     Room currentRoom = this.getRoomFromTemple(c.getCurrentPosition());
@@ -439,13 +499,213 @@ public class Turn extends Main {
 
     }
 
+    public ArrayList<Integer> getPossibleMovesCreatures(int[] currentPosition) {
+        boolean easySquare =false;
+        ArrayList<Integer> possibleMoves = new ArrayList<>();
+        // int[] startP = { 0, 1, 1 };
+        Room currentRoom = this.getRoomFromTemple(currentPosition);
+        if (currentPosition[2] == 1) {
+            // valid options are w e
+            possibleMoves.add(3);
+            possibleMoves.add(4);
+            easySquare = true;
+        } else if (currentPosition[1] == 1) {
+            // ns
+            possibleMoves.add(1);
+            possibleMoves.add(2);
+
+            easySquare = true;
+        }
+        if (!easySquare) {
+            if (currentPosition[1] == 0) {
+                possibleMoves.add(2);
+
+            }
+            if (currentPosition[1] == 2) {
+                possibleMoves.add(1);
+
+            }
+            if (currentPosition[2] == 0) {
+                possibleMoves.add(3);
+
+            }
+            if (currentPosition[2] == 2) {
+                possibleMoves.add(4);
+
+            }
+        }
+        return possibleMoves;
+    }
+
+    public ArrayList<Integer> getPossibleMovesAdventurers(int[] currentPosition) {
+        ArrayList<Integer> possibleMoves = new ArrayList<>();
+        Room currentRoom = this.getRoomFromTemple(currentPosition);
+        if (currentRoom.getStair()) {
+            // all moves possibles
+            possibleMoves.add(1);
+            possibleMoves.add(2);
+            possibleMoves.add(3);
+            possibleMoves.add(4);
+            if (currentPosition[0] > 0 & currentPosition[0] < 4) {
+                possibleMoves.add(5);
+                possibleMoves.add(6);
+            } else if (currentPosition[0] == 0) {
+                possibleMoves.add(5);
+            } else if (currentPosition[0] == 4) {
+                possibleMoves.add(6);
+            }
+
+        } else {
+            if (currentPosition[1] == 0) {
+                possibleMoves.add(2);
+            }
+            if (currentPosition[1] == 2) {
+                possibleMoves.add(1);
+            }
+            if (currentPosition[2] == 0) {
+                possibleMoves.add(3);
+            }
+            if (currentPosition[2] == 2) {
+                possibleMoves.add(4);
+            }
+
+        }
+       
+
+        return possibleMoves;
+    }
+
+    public void moveAdventurers() {
+        int[] offsetNorth = { 0, 1, 0 };// 1
+        int[] offsetSouth = { 0, -1, 0 };// 2
+        int[] offsetEast = { 0, 0, 1 };// 3
+        int[] offsetWest = { 0, 0, -1 };// 4
+        int[] offsetUp = { 1, 0, 0 };// 5
+        int[] offsetDown = { -1, 0, 0 };// 6
+        System.out.println("here");
+        for (int i = 0; i < this.Adventurers.size(); i++) {
+            Adventurer a = this.Adventurers.get(i);
+            System.out.println(a.getAdventurerName());
+            ArrayList<Integer> possibleMoves = new ArrayList<>();
+
+
+            int[] currentPosition = a.getCurrentPosition();
+            Room currentRoom = this.getRoomFromTemple(currentPosition);
+            possibleMoves =this.getPossibleMovesAdventurers(currentPosition);
+
+
+
+            System.out.println(possibleMoves.size());
+            int pMSize = possibleMoves.size();
+            int rNum = r.nextInt(pMSize);
+            int randNextMoveChoice = possibleMoves.get(rNum);
+            int[] startP = { 0, 1, 1 };
+            if(Arrays.equals(currentPosition , startP)){
+                //must go up on first move
+                randNextMoveChoice = 5;
+            }
+            System.out.println(randNextMoveChoice);
+            switch (randNextMoveChoice) {
+                case 1:
+                    // north
+                    int[] nextRoomId = this.addIds(currentPosition, offsetNorth);
+                    System.out.println("North" + Arrays.toString(nextRoomId));
+                    Room nextRoom = this.getRoomFromTemple(nextRoomId);
+                    // if (nextRoom.getAdventurers().size() > 0) {
+                    // //
+                    // // if an adventurer is there move
+                    a.setCurrentPosition(nextRoomId);
+                    // // leave old room list
+                    currentRoom.deleteAdventurerFromRoom(a);
+                    // // move to new room list
+                    nextRoom.addAdventurerToRoom(a);
+                    // }
+                    break;
+                case 2:
+                    // south
+                    int[] nextRoomIdS = this.addIds(currentPosition, offsetSouth);
+                    Room nextRoomS = this.getRoomFromTemple(nextRoomIdS);
+                    System.out.println("south" + Arrays.toString(nextRoomIdS));
+                    // if (nextRoom.getAdventurers().size() > 0) {
+                    // //
+                    // // if an adventurer is there move
+                    a.setCurrentPosition(nextRoomIdS);
+                    // // leave old room list
+                    currentRoom.deleteAdventurerFromRoom(a);
+                    // // move to new room list
+                    nextRoomS.addAdventurerToRoom(a);
+                    break;
+                case 3:
+                    // EAST
+                    int[] nextRoomIdE = this.addIds(currentPosition, offsetEast);
+                    Room nextRoomE = this.getRoomFromTemple(nextRoomIdE);
+                    System.out.println("east" + Arrays.toString(nextRoomIdE));
+                    // if (nextRoom.getAdventurers().size() > 0) {
+                    // //
+                    // // if an adventurer is there move
+                    a.setCurrentPosition(nextRoomIdE);
+                    // // leave old room list
+                    currentRoom.deleteAdventurerFromRoom(a);
+                    // // move to new room list
+                    nextRoomE.addAdventurerToRoom(a);
+                    break;
+                case 4:
+                    // WEST
+                    int[] nextRoomIdW = this.addIds(currentPosition, offsetWest);
+                    Room nextRoomW = this.getRoomFromTemple(nextRoomIdW);
+                    System.out.println("west" + Arrays.toString(nextRoomIdW));
+                    // if (nextRoom.getAdventurers().size() > 0) {
+                    // //
+                    // // if an adventurer is there move
+                    a.setCurrentPosition(nextRoomIdW);
+                    // // leave old room list
+                    currentRoom.deleteAdventurerFromRoom(a);
+                    // // move to new room list
+                    nextRoomW.addAdventurerToRoom(a);
+                    break;
+                case 5:
+                    // UP
+                    int[] nextRoomIdU = this.addIds(currentPosition, offsetUp);
+                    Room nextRoomU = this.getRoomFromTemple(nextRoomIdU);
+                    System.out.println("up" + Arrays.toString(nextRoomIdU));
+                    // if (nextRoom.getAdventurers().size() > 0) {
+                    // //
+                    // // if an adventurer is there move
+                    a.setCurrentPosition(nextRoomIdU);
+                    // // leave old room list
+                    currentRoom.deleteAdventurerFromRoom(a);
+                    // // move to new room list
+                    nextRoomU.addAdventurerToRoom(a);
+                    break;
+                case 6:
+                    // DOWN
+                    int[] nextRoomIdD = this.addIds(currentPosition, offsetDown);
+                    Room nextRoomD = this.getRoomFromTemple(nextRoomIdD);
+                    System.out.println("Down" + Arrays.toString(nextRoomIdD));
+                    // if (nextRoom.getAdventurers().size() > 0) {
+                    // //
+                    // // if an adventurer is there move
+                    a.setCurrentPosition(nextRoomIdD);
+                    // // leave old room list
+                    currentRoom.deleteAdventurerFromRoom(a);
+                    // // move to new room list
+                    nextRoomD.addAdventurerToRoom(a);
+                    break;
+
+            }
+
+        }
+
+    }
+
     public void oneTurn() {
         // Adventurers move
         // then fight
         // if the room is empty then search
         // then creatures turn
         // move
-        this.moveCreatures();
+        // this.moveCreatures();
+        this.moveAdventurers();
         // for(int i = 0; i < this.Creatures.size(); i++){
         // Creature c = Creatures.get(i);
         // c.move();

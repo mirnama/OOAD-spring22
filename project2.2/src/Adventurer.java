@@ -20,6 +20,9 @@ public class Adventurer {
         this.currentPosition[1] = j;
         this.currentPosition[2] = k;
     }
+    public void setCurrentPosition(int[] id){
+        this.currentPosition = id;
+    }
     public int getTreasure(){
         return this.treasure;
     }
@@ -44,4 +47,5 @@ public class Adventurer {
     public String getAdventurerName(){
         return this.adventurerName;
     }
+
 }
