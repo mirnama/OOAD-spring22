@@ -1,10 +1,8 @@
-public class Runner extends Adventurers{
-    public Runner() {
-        setPoints(3);
-        damage=0;
-        setAdventurerName("Runner");
-//        setDis1(getDis1());
-//        setDis2(getDis2());
-        setTotal(rollTheDice());
+public class Runner extends Adventurer{
+
+    public Runner(String newName,String type,int[] newPos) {
+        super(newName,type, newPos);
+        //TODO Auto-generated constructor stub
     }
+    
 }

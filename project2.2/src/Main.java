@@ -2,11 +2,12 @@ import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
+        Turn t = new Turn();
+        t.startGame();
 
-
-
-        Game g = new Game();
-//        g.playGame();
-        g.printReport();
+        t.displayBoard();
+        t.oneTurn();
+        t.displayBoard();
     }
+
 }
