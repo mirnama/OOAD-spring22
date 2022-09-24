@@ -1,7 +1,8 @@
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Room {
-
+    Random r = new Random();
     private int[] roomID = { 0, 0, 0 };
     private boolean isStair;//true if stair false if not
     private ArrayList<Creature> creaturesInRoom = new ArrayList<>();
@@ -88,6 +89,46 @@ public class Room {
             return true;
         }
         return false;
+    }
+    public Creature killCreature(){
+        Creature c = creaturesInRoom.get(0);
+        this.deleteCreatureFromRoom(c);
+        return c;
+    }
+    public Adventurer getFirstAdventurer(){
+        return this.adventurersInRoom.get(0);
+    }
+    // to roll the dice
+    // returns the sum of two 6 sides dice rolls
+    public int rollTheDice() {
+        int dis1 = r.nextInt(7);
+        int dis2 = r.nextInt(7);
+        // System.out.println("dice 1 from rollTheDice: "+dis1);
+        // System.out.println("dice 2 from rollTheDice: "+dis2);
+        return dis1 + dis2;
+    }
+    public String fight(){
+        Adventurer a = this.adventurersInRoom.get(0);
+        Creature c = this.creaturesInRoom.get(0);
+        int aRoll = this.rollTheDice();
+        int cRoll = this.rollTheDice();
+        String loser ="";
+        if(aRoll> cRoll){
+            //creature dead
+            loser ="c";
+            System.out.println(c.getCreatureName() + " was Killed by " +a.getType());
+            // this.creaturesInRoom.remove(c);
+        }else if(cRoll > aRoll){
+            //adventurer damage
+            loser = "a";
+            // a.takeDamage();
+            System.out.println(a.getType() + " was hurt by "+ c.getCreatureName());
+        }else if(aRoll == cRoll){
+            //tie
+            loser = "t";
+            System.out.println(a.getType() + " and "+ c.getCreatureName()+ " Tied");
+        }
+        return loser;
     }
     
 
