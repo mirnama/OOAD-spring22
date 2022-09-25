@@ -1,4 +1,5 @@
 public class Main2 {
+    //This main is to run the gam for 30 turns or until the game ends on its own
     public static void main(String[] args){
     Turn t2 = new Turn();
     t2.startGame();

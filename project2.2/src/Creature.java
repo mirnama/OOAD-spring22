@@ -1,5 +1,6 @@
-import java.util.ArrayList;
+
 public class Creature{
+    //example of inheritance
     private String creatureName;
     private int[] currentPosition;
     public Creature(String type, int[]newPos){

@@ -3,7 +3,8 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.Random;
 
-public class Turn extends Main {
+public class Turn{
+    //turn has lots of cohesion throughout it
     ArrayList<Room> Temple = new ArrayList<Room>();
     ArrayList<Creature> Creatures = new ArrayList<Creature>();
     ArrayList<Adventurer> Adventurers = new ArrayList<Adventurer>();
@@ -136,7 +137,7 @@ public class Turn extends Main {
         return sum;
     }
 
-    // displays the board after a round
+    // displays the board after a round and the report of the adventures stats and how many creatures are left
     public void displayBoard() {
         // for(int i = 0; i < this.getTempleSize(); i++){
         // Room printRoom = this.Temple.get(i);
@@ -174,6 +175,7 @@ public class Turn extends Main {
         System.out.println("Blinkers remaining: " + creatureCounts[2]);
 
     }
+    //displays the stats about adventurers and how many creatures are left
     public void printReport(){
         for (int i = 0; i < this.Adventurers.size(); i++) {
             Adventurer a = this.Adventurers.get(i);
@@ -185,7 +187,7 @@ public class Turn extends Main {
         System.out.println("Seekers remaining: " + creatureCounts[1]);
         System.out.println("Blinkers remaining: " + creatureCounts[2]);
     }
-
+    //returns a string of creatures names
     public ArrayList<String> getCreaturesNames() {
         ArrayList<String> aNames = new ArrayList<>();
         if (this.Creatures.size() == 0) {
@@ -200,7 +202,7 @@ public class Turn extends Main {
             return aNames;
         }
     }
-
+    //returns total creature count
     public int[] getCreatureCount() {
         int[] totals = { 0, 0, 0 };
         ArrayList<String> creaturesInTotal = this.getCreaturesNames();
@@ -210,7 +212,7 @@ public class Turn extends Main {
         return totals;
 
     }
-
+    //returns the combined damage of the adventurers
     public int getTotalDamage() {
         int sum = 0;
         for (int i = 0; i < this.Adventurers.size(); i++) {
@@ -235,7 +237,7 @@ public class Turn extends Main {
         }
         return false;
     }
-
+    //adds two positions making sure that the summations stays in bounds
     public int[] addIds(int[] a, int[] b) {
         int[] retID = { 0, 0, 0 };
         for (int i = 0; i < 3; i++) {
@@ -264,7 +266,7 @@ public class Turn extends Main {
 
         return retID;
     }
-
+    //checks if a move is valid, true if it is false if not
     public Boolean isValidMove(int[] currentPosition, int[] offset) {
         int[] potentialMove = this.addIds(currentPosition, offset);
 
@@ -281,7 +283,7 @@ public class Turn extends Main {
     public int getTempleSize() {
         return this.Temple.size();
     }
-
+    //gets an arrayList of numbers corresponding to going a certain direction
     public ArrayList<Integer> getPossibleMovesAdventurers(int[] currentPosition) {
         ArrayList<Integer> possibleMoves = new ArrayList<>();
         Room currentRoom = this.getRoomFromTemple(currentPosition);
@@ -318,11 +320,11 @@ public class Turn extends Main {
 
         return possibleMoves;
     }
-
+    //finds room in temple based off of index
     public Room getRoomFromTemple(int index) {
         return this.Temple.get(index);
     }
-
+    //finds a room by a creature
     public Room findRoom(Creature c) {
         for (int i = 0; i < this.getTempleSize(); i++) {
             Room tempR = this.Temple.get(i);
@@ -335,7 +337,7 @@ public class Turn extends Main {
         }
         return null;
     }
-
+    //gives possible moves for an orbiter
     public ArrayList<Integer> getPossibleMovesOrbiter(int[] currentPosition) {
         boolean easySquare = false;
         ArrayList<Integer> possibleMoves = new ArrayList<>();
@@ -373,7 +375,7 @@ public class Turn extends Main {
         }
         return possibleMoves;
     }
-
+    //moves the creatures
     public void moveCreatures() {
         for (int i = 0; i < this.Creatures.size(); i++) {
             Creature c = this.Creatures.get(i);
@@ -551,7 +553,7 @@ public class Turn extends Main {
         }
 
     }
-
+    //moves the adventurers
     public void moveAdventurers() {
         int[] offsetNorth = { 0, 1, 0 };// 1
         int[] offsetSouth = { 0, -1, 0 };// 2
@@ -673,7 +675,7 @@ public class Turn extends Main {
         }
 
     }
-
+    //returns all the rooms that have will have fights in them
     public ArrayList<Room> checkFights() {
         ArrayList<Room> roomsWFights = new ArrayList<>();
         for (int i = 0; i < this.getTempleSize(); i++) {
@@ -684,7 +686,7 @@ public class Turn extends Main {
         }
         return roomsWFights;
     }
-
+    //takes the fight from the room class and distributes damage, kills creatures
     public void fight(ArrayList<Room> fightingRooms) {
         for (int i = 0; i < fightingRooms.size(); i++) {
             Room tempRoom = fightingRooms.get(i);
@@ -708,7 +710,7 @@ public class Turn extends Main {
             }
         }
     }
-
+    //goes through the adventures and if they are not in a room with a fight they can search for treasure
     public void search() {
         for (int i = 0; i < this.Adventurers.size(); i++) {
             Adventurer a = this.Adventurers.get(i);
@@ -720,7 +722,7 @@ public class Turn extends Main {
             }
         }
     }
-
+    //does one turn in order of move adventurers, fighting or searching. then moving creatures and fighting.
     public void oneTurn() {
         // Adventurers move
         // then fight

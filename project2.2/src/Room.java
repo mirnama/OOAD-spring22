@@ -3,7 +3,7 @@ import java.util.Random;
 
 public class Room {
     Random r = new Random();
-    private int[] roomID = { 0, 0, 0 };
+    private int[] roomID = { 0, 0, 0 };//example of identity
     private boolean isStair;//true if stair false if not
     private ArrayList<Creature> creaturesInRoom = new ArrayList<>();
     private ArrayList<Adventurer> adventurersInRoom = new ArrayList<>();
@@ -21,7 +21,7 @@ public class Room {
         }
 
     }
-
+    //returns an arrayList of all the adventures names that they were constructed with
     public ArrayList<String> getAdventuresNames() {
         ArrayList<String> aNames = new ArrayList<>();
         if (this.adventurersInRoom.size() == 0) {
@@ -36,7 +36,7 @@ public class Room {
             return aNames;
         }
     }
-
+    //gives an ArrayList of the creatures names
     public ArrayList<String> getCreaturesNames() {
         ArrayList<String> aNames = new ArrayList<>();
         if (this.creaturesInRoom.size() == 0) {
@@ -83,18 +83,20 @@ public class Room {
     public int[] getRoomID() {
         return this.roomID;
     }
-
+    //checks if there are adventures and creatures in the same room, if so it returns true, false otherwise
     public boolean isFight() {
         if (this.adventurersInRoom.size() > 0 & this.creaturesInRoom.size() > 0) {
             return true;
         }
         return false;
     }
+    //returns the first creature in the creaturesInRoom ArrayList
     public Creature killCreature(){
         Creature c = creaturesInRoom.get(0);
         this.deleteCreatureFromRoom(c);
         return c;
     }
+    //returns the first adventurer in the room
     public Adventurer getFirstAdventurer(){
         return this.adventurersInRoom.get(0);
     }
@@ -107,6 +109,8 @@ public class Room {
         // System.out.println("dice 2 from rollTheDice: "+dis2);
         return dis1 + dis2;
     }
+    //fights the first creature and first adventurer in room
+    //returns a if the adventurer lost, c if the creature lost, and t if it was a tie
     public String fight(){
         Adventurer a = this.adventurersInRoom.get(0);
         Creature c = this.creaturesInRoom.get(0);

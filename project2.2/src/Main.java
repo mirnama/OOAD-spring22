@@ -1,8 +1,5 @@
-import javax.swing.text.html.StyleSheet;
-import java.io.File; // Import the File class
-import java.io.IOException; // Import the IOException class to handle errors
-import java.io.FileWriter;
-
+//this is the main to start one turn. it will spawn in the temple 
+//and adventures and creatures and show one turn of movement
 public class Main {
     public static void main(String[] args) {
         //for one turn
@@ -28,4 +25,5 @@ public class Main {
         
        
         
-    }
+    }}
+    
