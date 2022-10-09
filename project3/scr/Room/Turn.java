@@ -1,13 +1,17 @@
+package Room;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+
 import java.util.Random;
 import Creature.*;
 import Adventurer.*;
-import Search.*;
+import Logger.Logger;
+import Room.*;
+import com.sun.tools.javac.Main;
 
 
-public class Turn extends Main {
+public class Turn extends Main implements Logger{
     ArrayList<Room> Temple = new ArrayList<Room>();
     ArrayList<Creature> Creatures = new ArrayList<Creature>();
     ArrayList<Adventurer> Adventurers = new ArrayList<Adventurer>();
@@ -31,8 +35,6 @@ public class Turn extends Main {
     public int rollTheDice() {
         int dis1 = r.nextInt(7);
         int dis2 = r.nextInt(7);
-        // System.out.println("dice 1 from rollTheDice: "+dis1);
-        // System.out.println("dice 2 from rollTheDice: "+dis2);
         return dis1 + dis2;
     }
 
@@ -150,8 +152,10 @@ public class Turn extends Main {
         // int templeSize =this.getTempleSize();
         int[] startRoomID = { 0, 1, 1 };
         Room startRoom = this.getRoomFromTemple(startRoomID);
-        System.out.println(Arrays.toString(startRoom.getRoomID()) + startRoom.getAdventuresNames() + ":"
+        out(Arrays.toString(startRoom.getRoomID()) + startRoom.getAdventuresNames() + ":"
                 + startRoom.getCreaturesNames() + " ");
+//        System.out.println(Arrays.toString(startRoom.getRoomID()) + startRoom.getAdventuresNames() + ":"
+//                + startRoom.getCreaturesNames() + " ");
 
         for (int i = 1; i < 5; i++) {
             for (int j = 0; j < 3; j++) {
@@ -162,32 +166,32 @@ public class Turn extends Main {
                             + printRoom.getCreaturesNames() + " ");
                     // System.out.println("qkjhergege");
                 }
-                System.out.println("");
+                out("");
             }
-            System.out.println("");
+            out("");
         }
 
         for (int i = 0; i < this.Adventurers.size(); i++) {
             Adventurer a = this.Adventurers.get(i);
-            System.out.println(a.getType() + ":Treasure(s) " + a.getTreasure() + ":Damage " + a.getDamage());
+            out(a.getType() + ":Treasure(s) " + a.getTreasure() + ":Damage " + a.getDamage());
         }
 
         int[] creatureCounts = this.getCreatureCount();
-        System.out.println("Obiter remaining: " + creatureCounts[0]);
-        System.out.println("Seekers remaining: " + creatureCounts[1]);
-        System.out.println("Blinkers remaining: " + creatureCounts[2]);
+        out("Obiter remaining: " + creatureCounts[0]);
+        out("Seekers remaining: " + creatureCounts[1]);
+        out("Blinkers remaining: " + creatureCounts[2]);
 
     }
     public void printReport(){
         for (int i = 0; i < this.Adventurers.size(); i++) {
             Adventurer a = this.Adventurers.get(i);
-            System.out.println(a.getType() + ":Treasure(s) " + a.getTreasure() + ":Damage " + a.getDamage());
+            out(a.getType() + ":Treasure(s) " + a.getTreasure() + ":Damage " + a.getDamage());
         }
 
         int[] creatureCounts = this.getCreatureCount();
-        System.out.println("Obiter remaining: " + creatureCounts[0]);
-        System.out.println("Seekers remaining: " + creatureCounts[1]);
-        System.out.println("Blinkers remaining: " + creatureCounts[2]);
+        out("Obiter remaining: " + creatureCounts[0]);
+        out("Seekers remaining: " + creatureCounts[1]);
+        out("Blinkers remaining: " + creatureCounts[2]);
     }
 
     public ArrayList<String> getCreaturesNames() {
@@ -228,13 +232,13 @@ public class Turn extends Main {
     // returns false if end conditions not
     public Boolean checkEndConditions() {
         if (this.Adventurers.size() == 0) {
-            System.out.println("All the Adventurers are dead, Lose!");
+            out("All the Adventurers are dead, Lose!");
             return true;
         } else if (this.Creatures.size() == 0) {
-            System.out.println("All the Creatures are dead, Win!");
+            out("All the Creatures are dead, Win!");
             return true;
         } else if (this.getTotalTreasure() >= 10) {
-            System.out.println("Adventurers found enough treasure, Win!");
+            out("Adventurers found enough treasure, Win!");
             return true;
         }
         return false;
