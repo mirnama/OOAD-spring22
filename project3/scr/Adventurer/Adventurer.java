@@ -1,4 +1,5 @@
 package Adventurer;
+
 public class Adventurer {
     private int[] currentPosition= {0,0,0};
     private String adventurerName;
