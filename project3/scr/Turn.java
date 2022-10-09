@@ -2,6 +2,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Random;
+import Creature.*;
+import Adventurer.*;
+import Search.*;
+
 
 public class Turn extends Main {
     ArrayList<Room> Temple = new ArrayList<Room>();
