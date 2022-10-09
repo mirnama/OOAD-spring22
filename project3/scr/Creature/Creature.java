@@ -1,5 +1,6 @@
 package Creature;
-public class Creature{
+import Logger.Logger;
+public class Creature implements Logger{
     private String creatureName;
     private int[] currentPosition;
     public Creature(String type, int[]newPos){

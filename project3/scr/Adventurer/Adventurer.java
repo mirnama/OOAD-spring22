@@ -1,6 +1,9 @@
 package Adventurer;
+import Logger.Logger;
+import Room.*;
 
-public class Adventurer {
+
+public class Adventurer implements Logger {
     private int[] currentPosition= {0,0,0};
     private String adventurerName;
     private String type;
@@ -38,14 +41,14 @@ public class Adventurer {
         this.damage++;
     }
 
-    // public boolean search(){
-    //     Turn t = new Turn();
-    //     if(t.rollTheDice() >= 10){
-    //         return true;
-    //     }else{
-    //         return false;
-    //     }
-    // }
+     public boolean search(){
+         Turn t = new Turn();
+         if(t.rollTheDice() >= 10){
+             return true;
+         }else{
+             return false;
+         }
+     }
     public String getAdventurerName(){
         return this.adventurerName;
     }
