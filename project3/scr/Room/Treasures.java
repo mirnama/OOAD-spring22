@@ -16,7 +16,8 @@ public class Treasures implements Logger {
     Integer trCount;
     TreasureType type;
 }
-
+// from the class code example
+// I do this to avoid parsing output from getclass() and to be clear about what object I'm talking to
 enum TreasureType{
     SWORD,
     GEM,
