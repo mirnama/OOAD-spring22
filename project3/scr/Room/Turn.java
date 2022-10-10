@@ -11,7 +11,7 @@ import Room.*;
 import com.sun.tools.javac.Main;
 
 
-public class Turn extends Main implements Logger{
+public class Turn  implements Logger{
     ArrayList<Room> Temple = new ArrayList<Room>();
     ArrayList<Creature> Creatures = new ArrayList<Creature>();
     ArrayList<Adventurer> Adventurers = new ArrayList<Adventurer>();
