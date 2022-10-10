@@ -3,9 +3,10 @@ import java.util.ArrayList;
 import java.util.Random;
 import Adventurer.*;
 import Creature.*;
+import Logger.Logger;
 
 
-public class Room {
+public class Room implements Logger {
     Random r = new Random();
     private int[] roomID = { 0, 0, 0 };
     private boolean isStair;//true if stair false if not
@@ -120,17 +121,17 @@ public class Room {
         if(aRoll> cRoll){
             //creature dead
             loser ="c";
-            System.out.println(c.getCreatureName() + " was Killed by " +a.getType());
+            out(c.getCreatureName() + " was Killed by " +a.getType());
             // this.creaturesInRoom.remove(c);
         }else if(cRoll > aRoll){
             //adventurer damage
             loser = "a";
             // a.takeDamage();
-            System.out.println(a.getType() + " was hurt by "+ c.getCreatureName());
+            out(a.getType() + " was hurt by "+ c.getCreatureName());
         }else if(aRoll == cRoll){
             //tie
             loser = "t";
-            System.out.println(a.getType() + " and "+ c.getCreatureName()+ " Tied");
+            out(a.getType() + " and "+ c.getCreatureName()+ " Tied");
         }
         return loser;
     }

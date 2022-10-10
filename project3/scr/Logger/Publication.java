@@ -2,9 +2,9 @@ package Logger;
 
 import Adventurer.Adventurer;
 
-public class publication implements Observer, Logger {
+public class Publication implements Observer, Logger {
 
-    public publication() {
+    public Publication() {
         Adventurer a;
     }
 
