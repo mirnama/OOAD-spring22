@@ -7,6 +7,7 @@ import java.util.Random;
 import Creature.*;
 import Adventurer.*;
 import Logger.Logger;
+import  Search.*;
 import Room.*;
 import combat.*;
 import Celebration.*;
