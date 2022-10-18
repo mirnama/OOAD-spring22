@@ -1,0 +1,39 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+boundary " User"
+actor Adventurer
+actor Creature #red
+Adventurer -> Room: Move Adventurer to the room
+
+activate Room
+Creature -> Room: Move Creature to the room
+group Play Game until End conditions is True
+Room -> "Empty Room": is the room empty
+"Empty Room" --> Room: No
+Room -> Fight: Fight the Creature
+
+Fight -> "Role the dice\n for score": Is The Adventurer score > Creature score
+"Role the dice\n for score" --> Fight: Yes
+Fight -> Defeated: Creature Defeated
+activate Defeated
+Defeated --> Room: Remove Creature from the room
+destroy Defeated
+"Role the dice\n for score" --> Fight: No
+Fight -> Room:  the Adventurer got damage points
+"Empty Room" --> Room: Yes
+
+Room -> Search: Search For Treasure
+Search -> Treasure: Any Treasure Avalibale
+Treasure --> Search: Yes
+Search -> Adventurer: Collect Treasure
+
+
+
+end
+deactivate Room
+destroy Room
+
+Room ->" User": Done
+@enduml
