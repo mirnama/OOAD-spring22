@@ -1,5 +1,6 @@
 package Adventurer;
 import Logger.Logger;
+import Search.*;
 import Room.*;
 import combat.*;
 
