@@ -9,5 +9,6 @@ import Logger.Logger;
 import Room.*;
 
 public interface Observer  {
-    public abstract void update( String s);
+    public abstract void update( String s, Turn t);
+
 }
