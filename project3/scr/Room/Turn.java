@@ -8,6 +8,9 @@ import Creature.*;
 import Adventurer.*;
 import Logger.Logger;
 import Room.*;
+import combat.*;
+import Celebration.*;
+import Search.*;
 import com.sun.tools.javac.Main;
 
 
@@ -693,41 +696,41 @@ public class Turn  implements Logger{
         return roomsWFights;
     }
 
-    public void fight(ArrayList<Room> fightingRooms) {
-        for (int i = 0; i < fightingRooms.size(); i++) {
-            Room tempRoom = fightingRooms.get(i);
-            String loser = tempRoom.fight();
-            switch (loser) {
-                case "c":
-                    Creature c = tempRoom.killCreature();
-                    this.Creatures.remove(c);
+    // public void fight(ArrayList<Room> fightingRooms) {
+    //     for (int i = 0; i < fightingRooms.size(); i++) {
+    //         Room tempRoom = fightingRooms.get(i);
+    //         String loser = tempRoom.fight();
+    //         switch (loser) {
+    //             case "c":
+    //                 Creature c = tempRoom.killCreature();
+    //                 this.Creatures.remove(c);
 
-                    break;
-                case "a":
-                    Adventurer a = tempRoom.getFirstAdventurer();
-                    a.takeDamage();
-                    if(a.getDamage() >3){
-                        System.out.println(a.getType()+ " has died!");
-                        this.Adventurers.remove(a);
-                    }
-                    break;
-                case "t":
-                    break;
-            }
-        }
-    }
+    //                 break;
+    //             case "a":
+    //                 Adventurer a = tempRoom.getFirstAdventurer();
+    //                 a.takeDamage();
+    //                 if(a.getDamage() >3){
+    //                     System.out.println(a.getType()+ " has died!");
+    //                     this.Adventurers.remove(a);
+    //                 }
+    //                 break;
+    //             case "t":
+    //                 break;
+    //         }
+    //     }
+    // }
 
-    public void search() {
-        for (int i = 0; i < this.Adventurers.size(); i++) {
-            Adventurer a = this.Adventurers.get(i);
-            Room currentRoom = this.getRoomFromTemple(a.getCurrentPosition());
-            if (!currentRoom.isFight()) {
-                if (a.search()) {
-                    a.addTreasure();
-                }
-            }
-        }
-    }
+    // public void search() {
+    //     for (int i = 0; i < this.Adventurers.size(); i++) {
+    //         Adventurer a = this.Adventurers.get(i);
+    //         Room currentRoom = this.getRoomFromTemple(a.getCurrentPosition());
+    //         if (!currentRoom.isFight()) {
+    //             if (a.search()) {
+    //                 a.addTreasure();
+    //             }
+    //         }
+    //     }
+    // }
 
     public void oneTurn() {
         // Adventurers move
@@ -739,19 +742,27 @@ public class Turn  implements Logger{
         ArrayList<Room> fightingRooms = this.checkFights();
         if (fightingRooms.size() > 0) {
             // fight
-            this.fight(fightingRooms);
+            // this.fight(fightingRooms);
+            for(int i = 0; i < fightingRooms.size(); i++){
+                ArrayList<Adventurer> as = (fightingRooms.get(i)).getAdventurers();
+                for( int j = 0; j < as.size(); j++){
+                    (as.get(j)).fight();
+                }
+            }
             // String winner =
         } else {
             // search
-            this.search();
-            // System.out.println("search");
+            for(int i = 0; i < Adventurers.size(); i++){
+                Adventurers.get(i).search();
+            }
         }
         this.moveCreatures();
         ArrayList<Room> fightingRoomsC = this.checkFights();
-        if (fightingRoomsC.size() > 0) {
-            // fight
-            this.fight(fightingRoomsC);
-            // String winner =
+        for(int i = 0; i < fightingRoomsC.size(); i++){
+            ArrayList<Adventurer> as = (fightingRoomsC.get(i)).getAdventurers();
+            for( int j = 0; j < as.size(); j++){
+                (as.get(j)).fight();
+            }
         }
         // for(int i = 0; i < this.Creatures.size(); i++){
         // Creature c = Creatures.get(i);
