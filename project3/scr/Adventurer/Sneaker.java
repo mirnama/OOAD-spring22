@@ -9,5 +9,13 @@ public class Sneaker extends Adventurer {
         this.combat = new Untrained();
         this.searchType = new Quick();
     }
+    @Override
+    public String fight(){
+        return combat.fight();
+    }
+    @Override
+    public Boolean search(){
+        return searchType.search();
+    }
     
 }

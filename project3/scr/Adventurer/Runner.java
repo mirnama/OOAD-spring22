@@ -10,5 +10,13 @@ public class Runner extends Adventurer{
         this.searchType = new Quick();
         
     }
+    @Override
+    public String fight(){
+        return combat.fight();
+    }
+    @Override
+    public Boolean search(){
+        return searchType.search();
+    }
     
 }

@@ -9,5 +9,12 @@ public class Thief extends Adventurer{
         this.combat = new Trained();
         this.searchType = new Careful();
     }
-    
+    @Override
+    public String fight(){
+        return combat.fight();
+    }
+    @Override
+    public Boolean search(){
+        return searchType.search();
+    }
 }

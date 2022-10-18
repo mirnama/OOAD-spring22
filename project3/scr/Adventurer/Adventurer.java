@@ -2,14 +2,16 @@ package Adventurer;
 import Logger.Logger;
 import Room.*;
 import combat.*;
+import Search.*;
 
 
-public class Adventurer implements Logger {
+public abstract class Adventurer implements Logger {
     private int[] currentPosition= {0,0,0};
     private String adventurerName;
     private String type;
     private int treasure=0;
     private int damage=0;
+
     public Adventurer( String newName,String type, int[] newPos){
         this.adventurerName = newName;
         this.type =type;
@@ -41,6 +43,8 @@ public class Adventurer implements Logger {
     public void takeDamage(){
         this.damage++;
     }
+    public String fight(){return "";}
+    public Boolean search(){return false;}
 
     //  public boolean search(){
     //      Turn t = new Turn();
@@ -53,5 +57,6 @@ public class Adventurer implements Logger {
     public String getAdventurerName(){
         return this.adventurerName;
     }
+   
     
 }

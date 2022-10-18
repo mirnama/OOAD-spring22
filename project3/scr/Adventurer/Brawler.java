@@ -11,5 +11,13 @@ public class Brawler extends Adventurer{
         this.searchType = new Careless();
         
     }
+    @Override
+    public String fight(){
+        return combat.fight();
+    }
+    @Override
+    public Boolean search(){
+        return searchType.search();
+    }
     
 }
