@@ -1,6 +1,7 @@
 package Adventurer;
 import Logger.Logger;
 import Room.*;
+import combat.*;
 
 
 public class Adventurer implements Logger {
@@ -41,16 +42,16 @@ public class Adventurer implements Logger {
         this.damage++;
     }
 
-     public boolean search(){
-         Turn t = new Turn();
-         if(t.rollTheDice() >= 10){
-             return true;
-         }else{
-             return false;
-         }
-     }
+    //  public boolean search(){
+    //      Turn t = new Turn();
+    //      if(t.rollTheDice() >= 10){
+    //          return true;
+    //      }else{
+    //          return false;
+    //      }
+    //  }
     public String getAdventurerName(){
         return this.adventurerName;
     }
-
+    
 }
