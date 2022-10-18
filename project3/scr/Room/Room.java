@@ -100,6 +100,11 @@ public class Room implements Logger {
         this.deleteCreatureFromRoom(c);
         return c;
     }
+    public Adventurer killAdventurer(){
+        Adventurer c = adventurersInRoom.get(0);
+        this.deleteAdventurerFromRoom(c);
+        return c;
+    }
     public Adventurer getFirstAdventurer(){
         return this.adventurersInRoom.get(0);
     }

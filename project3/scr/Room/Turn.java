@@ -734,42 +734,79 @@ public class Turn  implements Logger{
     // }
 
     public void oneTurn() {
-        // Adventurers move
-        // then fight
-        // if the room is empty then search
-        // then creatures turn
-        // move
+       
         this.moveAdventurers();
         ArrayList<Room> fightingRooms = this.checkFights();
-        if (fightingRooms.size() > 0) {
-            // fight
-            // this.fight(fightingRooms);
+        if(fightingRooms.size() > 0){
             for(int i = 0; i < fightingRooms.size(); i++){
-                ArrayList<Adventurer> as = (fightingRooms.get(i)).getAdventurers();
-                for( int j = 0; j < as.size(); j++){
-                    (as.get(j)).fight();
+                Room tempR = fightingRooms.get(i);
+                // System.out.println(tempR.getAdventuresNames());
+                ArrayList<Adventurer> AdsInRoom = tempR.getAdventurers();
+                for(int j = 0; j< AdsInRoom.size(); j++){
+                    Adventurer tempA = AdsInRoom.get(j);
+                    String result = tempA.fight();
+                    switch(result){
+                        case "c":
+                        Adventurer a =tempR.killAdventurer();
+                        this.Adventurers.remove(a);
+    
+                        break;
+                        case "a":
+                        Creature c = tempR.killCreature();
+                        this.Creatures.remove(c);
+                        break;
+                        case "t":
+                        System.out.println("Tie");
+                        break;
+                        case "N":
+                        System.out.println("Avoided fight");
+                        break;
+                    }
                 }
             }
-            // String winner =
-        } else {
-            // search
+
+        }else{
             for(int i = 0; i < Adventurers.size(); i++){
-                Adventurers.get(i).search();
+                Adventurer tempA = Adventurers.get(i);
+                Boolean found = tempA.search();
+                if(found){
+                    //add treasure to inventory
+                    tempA.addTreasure();
+                }
             }
         }
+        
         this.moveCreatures();
         ArrayList<Room> fightingRoomsC = this.checkFights();
-        for(int i = 0; i < fightingRoomsC.size(); i++){
-            ArrayList<Adventurer> as = (fightingRoomsC.get(i)).getAdventurers();
-            for( int j = 0; j < as.size(); j++){
-                (as.get(j)).fight();
+        if(fightingRooms.size() > 0){
+            for(int i = 0; i < fightingRoomsC.size(); i++){
+                Room tempR = fightingRoomsC.get(i);
+                // System.out.println(tempR.getAdventuresNames());
+                ArrayList<Adventurer> AdsInRoom = tempR.getAdventurers();
+                for(int j = 0; j< AdsInRoom.size(); j++){
+                    Adventurer tempA = AdsInRoom.get(j);
+                    String result = tempA.fight();
+                    switch(result){
+                        case "c":
+                        Adventurer a =tempR.killAdventurer();
+                        this.Adventurers.remove(a);
+    
+                        break;
+                        case "a":
+                        Creature c = tempR.killCreature();
+                        this.Creatures.remove(c);
+                        break;
+                        case "t":
+                        System.out.println("Tie");
+                        break;
+                        case "N":
+                        System.out.println("Avoided fight");
+                        break;
+                    }
+                }
             }
-        }
-        // for(int i = 0; i < this.Creatures.size(); i++){
-        // Creature c = Creatures.get(i);
-        // c.move();
 
-        // }
-        // possibly fight
+        }
+       
     }
 }
