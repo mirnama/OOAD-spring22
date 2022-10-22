@@ -20,7 +20,7 @@ public class Publication implements Observer, Logger {
     public void update(String s, Turn t) {
 
         try {
-            FileWriter outPut = new FileWriter("output.txt", true);
+            FileWriter outPut = new FileWriter("output1.txt", true);
             outPut.write("\n Publisher updates1: "+t+"\n" );
             outPut.close();;
         } catch (Exception e) {
