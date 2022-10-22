@@ -20,7 +20,8 @@ provide a custom name to be used for the Adventurer.
 All interactions with the user will be via the command line with prompts for numeric or text inputs.  Present the Facility drawing of the Rooms to the user prior to asking for commands.
 
 **Changes summery:**
-1. The new user-controlled Adventurer has a damage capacity based on type:  Brawlers 12, Runners and Thieves 10, Sneakers 8
+1. The new user-controlled Adventurer has a damage capacity based on type:  Brawlers 12, Runners and Thieves 10, 
+2. Sneakers 8
 2. Adventurers with Quick Search skill will not skip searches.
 3. All Search skill checks will be easier by 3
 4. The game ends when the Adventurer enters Room 0-1-1 after having left it at the start of the game.
