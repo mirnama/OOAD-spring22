@@ -8,6 +8,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class TurnTest {
 
     @Test
+    //test will check the git room from temple
     void getRoomFromTemple() {
         out.println("get room from temple works");
     }
