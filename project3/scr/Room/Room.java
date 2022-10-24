@@ -4,6 +4,7 @@ import java.util.Random;
 import Adventurer.*;
 import Creature.*;
 import Logger.Logger;
+import Room.Treasures;
 
 
 public class Room implements Logger {
@@ -12,6 +13,7 @@ public class Room implements Logger {
     private boolean isStair;//true if stair false if not
     private ArrayList<Creature> creaturesInRoom = new ArrayList<>();
     private ArrayList<Adventurer> adventurersInRoom = new ArrayList<>();
+    private ArrayList<Treasures> lootInRoom= new ArrayList<>();
 
     // constructor that takes in roomID as 3 diff integers
     // sets room ID and the is stair boolean
@@ -140,6 +142,11 @@ public class Room implements Logger {
         }
         return loser;
     }
-    
-
+    public void addLoot(Treasures t){
+        this.lootInRoom.add(t);
+    }
+    //returns the first treasure in the room
+    public Treasures getLoot(){
+        return(this.lootInRoom.get(0));
+    }
 }
