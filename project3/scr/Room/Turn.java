@@ -42,7 +42,9 @@ public class Turn implements Logger {
         int dis2 = r.nextInt(7);
         return dis1 + dis2;
     }
+    // public Adventurer userChooseAdventurer(){
 
+    // }
     // Initializes the temple
     // spawns in adventures and 4 of each type of creature
     // add all to a masterList that is stored in Main
@@ -52,18 +54,19 @@ public class Turn implements Logger {
         Room startRoom = new Room(0, 1, 1);
         int[] startPos = { 0, 1, 1 };
         // adventueres
-        Brawler brawler = new Brawler("B", "Brawler", startPos);
-        Sneaker sneaker = new Sneaker("S", "Sneaker", startPos);
-        Thief thief = new Thief("T", "Thief", startPos);
-        Runner runner = new Runner("R", "Runner", startPos);
-        this.Adventurers.add(brawler);
-        this.Adventurers.add(sneaker);
-        this.Adventurers.add(thief);
-        this.Adventurers.add(runner);
-        startRoom.addAdventurerToRoom(brawler);
-        startRoom.addAdventurerToRoom(sneaker);
-        startRoom.addAdventurerToRoom(thief);
-        startRoom.addAdventurerToRoom(runner);
+        // Brawler brawler = new Brawler("B", "Brawler", startPos);
+        // Sneaker sneaker = new Sneaker("S", "Sneaker", startPos);
+        // Thief thief = new Thief("T", "Thief", startPos);
+        // Runner runner = new Runner("R", "Runner", startPos);
+        // this.Adventurers.add(brawler);
+        // this.Adventurers.add(sneaker);
+        // this.Adventurers.add(thief);
+        // this.Adventurers.add(runner);
+        // startRoom.addAdventurerToRoom(brawler);
+        // startRoom.addAdventurerToRoom(sneaker);
+        // startRoom.addAdventurerToRoom(thief);
+        // startRoom.addAdventurerToRoom(runner);
+
         this.Temple.add(startRoom);
         for (int i = 1; i < 5; i++) {
             for (int j = 0; j < 3; j++) {
@@ -825,17 +828,23 @@ public class Turn implements Logger {
                     //celebrate
                     case "3":
                         tempA.celebrate();
+                        success = true;
                         break;
                     default:
                         break;
+                    }
                 }
             }
+            return success;
         }
-    }
 
     public void oneTurn() {
 
         // this.moveAdventurers();
+        boolean move = false;
+        while(move == false){
+            move = this.userMove();
+        }
         ArrayList<Room> fightingRooms = this.checkFights();
         if (fightingRooms.size() > 0) {
             for (int i = 0; i < fightingRooms.size(); i++) {
@@ -875,6 +884,7 @@ public class Turn implements Logger {
                 }
             }
         }
+    
 
         this.moveCreatures();
         ArrayList<Room> fightingRoomsC = this.checkFights();
