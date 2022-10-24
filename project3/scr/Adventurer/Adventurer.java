@@ -72,5 +72,7 @@ public abstract class Adventurer implements Logger {
         }
         else{return false;}
    }
+public void celebrate() {
+}
     
 }

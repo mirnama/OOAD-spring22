@@ -1,7 +1,7 @@
 package Search;
 import java.util.Random;
 public class Careful implements Search {
-    private int minDiceRoll = 7;
+    private int minDiceRoll = 4;
     private double avoidTrap = .5;
     public int getMinDiceRoll(){
         return this.minDiceRoll;

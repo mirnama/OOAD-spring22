@@ -1,7 +1,7 @@
 package Search;
 import java.util.Random;
 public class Careless implements Search {
-    private int minDiceRoll = 10;
+    private int minDiceRoll = 7;
 
     public int getMinDiceRoll(){
         return this.minDiceRoll;
