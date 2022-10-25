@@ -592,7 +592,21 @@ public class Turn implements Logger {
         }
 
     }
-
+    //helper for the command stuff prints out the list of options and a map
+    //returns the int corresponding to the direction
+    public int userMoveChoice(ArrayList<Integer> options){
+        try (Scanner scan = new Scanner(System.in)) {
+            this.displayBoard();
+            System.out.println("Where you you like to move? Your options are: ");
+            String[] words = {"North", "South", "East", "West", "Up", "Down"};
+            for(int i = 0 ; i < options.size();i++){
+                int temp =options.get(i);
+                System.out.println(temp + ". "+ words[temp]);
+            }
+            // choice = scan.nextInt();
+            return scan.nextInt();
+        }
+    }
     public void moveAdventurers() {
         int[] offsetNorth = { 0, 1, 0 };// 1
         int[] offsetSouth = { 0, -1, 0 };// 2
@@ -611,13 +625,19 @@ public class Turn implements Logger {
             possibleMoves = this.getPossibleMovesAdventurers(currentPosition);
 
             // System.out.println(possibleMoves.size());
-            int pMSize = possibleMoves.size();
-            int rNum = r.nextInt(pMSize);
-            int randNextMoveChoice = possibleMoves.get(rNum);
+            // int pMSize = possibleMoves.size();
+            // int rNum = r.nextInt(pMSize);
+
             int[] startP = { 0, 1, 1 };
+            int randNextMoveChoice;
             if (Arrays.equals(currentPosition, startP)) {
                 // must go up on first move
-                randNextMoveChoice = 5;
+                
+                randNextMoveChoice = this.userMoveChoice(possibleMoves);
+                // this.userMoveChoice(possibleMoves)
+            }else{
+
+                randNextMoveChoice = this.userMoveChoice(possibleMoves);
             }
             // System.out.println(randNextMoveChoice);
             switch (randNextMoveChoice) {
@@ -714,7 +734,10 @@ public class Turn implements Logger {
         }
 
     }
-
+    //new search method to help the command interface
+    public void search(){
+        
+    }
     public ArrayList<Room> checkFights() {
         ArrayList<Room> roomsWFights = new ArrayList<>();
         for (int i = 0; i < this.getTempleSize(); i++) {

@@ -1,16 +1,19 @@
 package Adventurer;
 import Logger.Logger;
 import Search.*;
-import Room.*;
+// import Room.*;
 import combat.*;
 import Search.*;
 import Room.Treasures;
 import java.util.ArrayList;
+import Celebration.Celebration;
 
 
 public abstract class Adventurer implements Logger {
     private int[] currentPosition= {0,0,0};
     private ArrayList<Treasures> Loot;
+    private Search s;
+    private Combat c;
     private String adventurerName;
     private String type;
     private int treasure=0;
@@ -74,5 +77,6 @@ public abstract class Adventurer implements Logger {
    }
 public void celebrate() {
 }
+
     
 }

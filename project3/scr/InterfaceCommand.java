@@ -1,4 +1,5 @@
 import Adventurer.Adventurer;
+import Room.Turn;
 
 public interface InterfaceCommand {
     public abstract void userTurn();
@@ -6,30 +7,39 @@ public interface InterfaceCommand {
 
 class moveCommand implements InterfaceCommand{
 
-    private Adventurer a;
+    private Turn t;
+    public moveCommand( Turn newT){
+        t = newT;
+    }
     public void userTurn() {
         // TODO Auto-generated method stub
-        a.move();
+        t.moveAdventurers();
         
     }
     
 }
 class searchCommand implements InterfaceCommand{
 
-    private Adventurer a;
+    private Turn t;
+    public searchCommand( Turn newT){
+        t = newT;
+    }
     public void userTurn() {
         // TODO Auto-generated method stub
-        a.search();
+        t.search();
         
     }
     
 }
 class celebrateCommand implements InterfaceCommand{
 
-    private Adventurer a;
+    private Turn t;
+    public celebrateCommand( Turn newT){
+        t = newT;
+    }
     public void userTurn() {
         // TODO Auto-generated method stub
-        a.celebrate();
+        t.celebrate();
     }
     
 }
