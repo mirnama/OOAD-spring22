@@ -736,7 +736,7 @@ public class Turn implements Logger {
     }
     //new search method to help the command interface
     public void search(){
-        
+
     }
     public ArrayList<Room> checkFights() {
         ArrayList<Room> roomsWFights = new ArrayList<>();
@@ -858,9 +858,10 @@ public class Turn implements Logger {
                     }
                 }
             }
+            
             return success;
         }
-
+    
     public void oneTurn() {
 
         // this.moveAdventurers();
@@ -941,5 +942,48 @@ public class Turn implements Logger {
 
         }
 
+    }
+    public String getUserName(){
+        try (Scanner scanner = new Scanner(System.in)) {
+            System.out.println("What is your Adventurers name?");
+            return scanner.nextLine();
+        }
+    }
+    public void setAdventurer() {
+        int[] startP = { 0, 1, 1 };
+        try (Scanner scan = new Scanner(System.in)) {
+            System.out.println("Choose your adventurer!");
+            System.out.println("1. Runner");
+            System.out.println("2.Brawler");
+            System.out.println("3. Thief");
+            System.out.println("4.Sneaker");
+            int choice = scan.nextInt();
+            String name = this.getUserName();
+            switch(choice){
+                case 1:
+                //runner
+                Adventurer a = new Runner(name, "Runner", startP);
+                this.Adventurers.add(a);
+                break;
+                case 2:
+                //brawler
+                Adventurer b = new Brawler(name, "Brawler", startP);
+                this.Adventurers.add(b);
+                break;
+                case 3:
+                //thief
+                Adventurer t = new Thief(name, "Thief", startP);
+                this.Adventurers.add(t);
+                break;
+                case 4:
+                //sneaker
+                Adventurer s = new Sneaker(name, "Sneaker", startP);
+                this.Adventurers.add(s);
+                break;
+            }
+
+        }
+        
+        
     }
 }
