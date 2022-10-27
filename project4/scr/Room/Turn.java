@@ -756,7 +756,7 @@ public class Turn implements Logger {
         int[] offsetWest = { 0, 0, -1 };// 4
         int[] offsetUp = { 1, 0, 0 };// 5
         int[] offsetDown = { -1, 0, 0 };// 6
-        boolean success;
+        boolean success = false;
         for (int i = 0; i < this.Adventurers.size(); i++) {
             Adventurer tempA = this.Adventurers.get(i);
             Room tempR = getRoomFromTemple(tempA.getCurrentPosition());
