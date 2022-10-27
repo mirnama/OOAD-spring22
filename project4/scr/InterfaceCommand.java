@@ -39,7 +39,7 @@ class celebrateCommand implements InterfaceCommand{
     }
     public void userTurn() {
         // TODO Auto-generated method stub
-        t.celebrate();
+//        t.celebrate();
     }
     
 }
