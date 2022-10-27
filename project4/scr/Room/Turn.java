@@ -1,21 +1,22 @@
 package Room;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Scanner;
 
 import java.util.Random;
 import Creature.*;
 import Adventurer.*;
 import Logger.Logger;
-import  Search.*;
+import Search.*;
 import Room.*;
 import combat.*;
 import Celebration.*;
 import Search.*;
 import com.sun.tools.javac.Main;
 
-
-public class Turn  implements Logger{
+public class Turn implements Logger {
     ArrayList<Room> Temple = new ArrayList<Room>();
     ArrayList<Creature> Creatures = new ArrayList<Creature>();
     ArrayList<Adventurer> Adventurers = new ArrayList<Adventurer>();
@@ -41,7 +42,9 @@ public class Turn  implements Logger{
         int dis2 = r.nextInt(7);
         return dis1 + dis2;
     }
+    // public Adventurer userChooseAdventurer(){
 
+    // }
     // Initializes the temple
     // spawns in adventures and 4 of each type of creature
     // add all to a masterList that is stored in Main
@@ -51,18 +54,19 @@ public class Turn  implements Logger{
         Room startRoom = new Room(0, 1, 1);
         int[] startPos = { 0, 1, 1 };
         // adventueres
-        Brawler brawler = new Brawler("B", "Brawler", startPos);
-        Sneaker sneaker = new Sneaker("S", "Sneaker", startPos);
-        Thief thief = new Thief("T", "Thief", startPos);
-        Runner runner = new Runner("R", "Runner", startPos);
-        this.Adventurers.add(brawler);
-        this.Adventurers.add(sneaker);
-        this.Adventurers.add(thief);
-        this.Adventurers.add(runner);
-        startRoom.addAdventurerToRoom(brawler);
-        startRoom.addAdventurerToRoom(sneaker);
-        startRoom.addAdventurerToRoom(thief);
-        startRoom.addAdventurerToRoom(runner);
+        // Brawler brawler = new Brawler("B", "Brawler", startPos);
+        // Sneaker sneaker = new Sneaker("S", "Sneaker", startPos);
+        // Thief thief = new Thief("T", "Thief", startPos);
+        // Runner runner = new Runner("R", "Runner", startPos);
+        // this.Adventurers.add(brawler);
+        // this.Adventurers.add(sneaker);
+        // this.Adventurers.add(thief);
+        // this.Adventurers.add(runner);
+        // startRoom.addAdventurerToRoom(brawler);
+        // startRoom.addAdventurerToRoom(sneaker);
+        // startRoom.addAdventurerToRoom(thief);
+        // startRoom.addAdventurerToRoom(runner);
+
         this.Temple.add(startRoom);
         for (int i = 1; i < 5; i++) {
             for (int j = 0; j < 3; j++) {
@@ -158,8 +162,9 @@ public class Turn  implements Logger{
         Room startRoom = this.getRoomFromTemple(startRoomID);
         out(Arrays.toString(startRoom.getRoomID()) + startRoom.getAdventuresNames() + ":"
                 + startRoom.getCreaturesNames() + " ");
-//        System.out.println(Arrays.toString(startRoom.getRoomID()) + startRoom.getAdventuresNames() + ":"
-//                + startRoom.getCreaturesNames() + " ");
+        // System.out.println(Arrays.toString(startRoom.getRoomID()) +
+        // startRoom.getAdventuresNames() + ":"
+        // + startRoom.getCreaturesNames() + " ");
 
         for (int i = 1; i < 5; i++) {
             for (int j = 0; j < 3; j++) {
@@ -186,7 +191,8 @@ public class Turn  implements Logger{
         out("Blinkers remaining: " + creatureCounts[2]);
 
     }
-    public void printReport(){
+
+    public void printReport() {
         for (int i = 0; i < this.Adventurers.size(); i++) {
             Adventurer a = this.Adventurers.get(i);
             out(a.getType() + ":Treasure(s) " + a.getTreasure() + ":Damage " + a.getDamage());
@@ -235,6 +241,15 @@ public class Turn  implements Logger{
     // returns true is end conditions are met and prints the result
     // returns false if end conditions not
     public Boolean checkEndConditions() {
+        int[] startR = { 0, 1, 1 };
+
+        for (int i = 0; i < this.Adventurers.size(); i++) {
+            Adventurer tempAdventurer = this.Adventurers.get(i);
+            if (tempAdventurer.getCurrentPosition() == startR) {
+                return this.whoWon();
+            }
+        }
+
         if (this.Adventurers.size() == 0) {
             out("All the Adventurers are dead, Lose!");
             return true;
@@ -248,6 +263,21 @@ public class Turn  implements Logger{
         return false;
     }
 
+    // returns true if adventures won, other wise false
+    public Boolean whoWon() {
+        if (this.Adventurers.size() == 0) {
+            return false;
+        } else {
+            for (int i = 0; i < this.Adventurers.size(); i++) {
+                Adventurer tempA = this.Adventurers.get(i);
+                if (tempA.allLootTypes()) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
     public int[] addIds(int[] a, int[] b) {
         int[] retID = { 0, 0, 0 };
         for (int i = 0; i < 3; i++) {
@@ -257,22 +287,21 @@ public class Turn  implements Logger{
         if (retID[0] < 0) {
             retID[0] = 0;
         }
-        if(retID[1]<0){
-            retID[1]=0;
+        if (retID[1] < 0) {
+            retID[1] = 0;
         }
-        if(retID[2]<0){
-            retID[2]=0;
+        if (retID[2] < 0) {
+            retID[2] = 0;
         }
-        if(retID[0]>2){
-            retID[0]=2;
+        if (retID[0] > 2) {
+            retID[0] = 2;
         }
-        if(retID[1]>2){
-            retID[1]=2;
+        if (retID[1] > 2) {
+            retID[1] = 2;
         }
-        if(retID[2]>2){
-            retID[2]=2;
+        if (retID[2] > 2) {
+            retID[2] = 2;
         }
-
 
         return retID;
     }
@@ -563,7 +592,21 @@ public class Turn  implements Logger{
         }
 
     }
-
+    //helper for the command stuff prints out the list of options and a map
+    //returns the int corresponding to the direction
+    public int userMoveChoice(ArrayList<Integer> options){
+        try (Scanner scan = new Scanner(System.in)) {
+            this.displayBoard();
+            System.out.println("Where you you like to move? Your options are: ");
+            String[] words = {"North", "South", "East", "West", "Up", "Down"};
+            for(int i = 0 ; i < options.size();i++){
+                int temp =options.get(i);
+                System.out.println(temp + ". "+ words[temp]);
+            }
+            // choice = scan.nextInt();
+            return scan.nextInt();
+        }
+    }
     public void moveAdventurers() {
         int[] offsetNorth = { 0, 1, 0 };// 1
         int[] offsetSouth = { 0, -1, 0 };// 2
@@ -582,13 +625,19 @@ public class Turn  implements Logger{
             possibleMoves = this.getPossibleMovesAdventurers(currentPosition);
 
             // System.out.println(possibleMoves.size());
-            int pMSize = possibleMoves.size();
-            int rNum = r.nextInt(pMSize);
-            int randNextMoveChoice = possibleMoves.get(rNum);
+            // int pMSize = possibleMoves.size();
+            // int rNum = r.nextInt(pMSize);
+
             int[] startP = { 0, 1, 1 };
+            int randNextMoveChoice;
             if (Arrays.equals(currentPosition, startP)) {
                 // must go up on first move
-                randNextMoveChoice = 5;
+                
+                randNextMoveChoice = this.userMoveChoice(possibleMoves);
+                // this.userMoveChoice(possibleMoves)
+            }else{
+
+                randNextMoveChoice = this.userMoveChoice(possibleMoves);
             }
             // System.out.println(randNextMoveChoice);
             switch (randNextMoveChoice) {
@@ -685,7 +734,10 @@ public class Turn  implements Logger{
         }
 
     }
+    //new search method to help the command interface
+    public void search(){
 
+    }
     public ArrayList<Room> checkFights() {
         ArrayList<Room> roomsWFights = new ArrayList<>();
         for (int i = 0; i < this.getTempleSize(); i++) {
@@ -697,116 +749,241 @@ public class Turn  implements Logger{
         return roomsWFights;
     }
 
-    // public void fight(ArrayList<Room> fightingRooms) {
-    //     for (int i = 0; i < fightingRooms.size(); i++) {
-    //         Room tempRoom = fightingRooms.get(i);
-    //         String loser = tempRoom.fight();
-    //         switch (loser) {
-    //             case "c":
-    //                 Creature c = tempRoom.killCreature();
-    //                 this.Creatures.remove(c);
-
-    //                 break;
-    //             case "a":
-    //                 Adventurer a = tempRoom.getFirstAdventurer();
-    //                 a.takeDamage();
-    //                 if(a.getDamage() >3){
-    //                     System.out.println(a.getType()+ " has died!");
-    //                     this.Adventurers.remove(a);
-    //                 }
-    //                 break;
-    //             case "t":
-    //                 break;
-    //         }
-    //     }
-    // }
-
-    // public void search() {
-    //     for (int i = 0; i < this.Adventurers.size(); i++) {
-    //         Adventurer a = this.Adventurers.get(i);
-    //         Room currentRoom = this.getRoomFromTemple(a.getCurrentPosition());
-    //         if (!currentRoom.isFight()) {
-    //             if (a.search()) {
-    //                 a.addTreasure();
-    //             }
-    //         }
-    //     }
-    // }
-
-    public void oneTurn() {
-       
-        this.moveAdventurers();
-        ArrayList<Room> fightingRooms = this.checkFights();
-        if(fightingRooms.size() > 0){
-            for(int i = 0; i < fightingRooms.size(); i++){
-                Room tempR = fightingRooms.get(i);
-                // System.out.println(tempR.getAdventuresNames());
-                ArrayList<Adventurer> AdsInRoom = tempR.getAdventurers();
-                for(int j = 0; j< AdsInRoom.size(); j++){
-                    Adventurer tempA = AdsInRoom.get(j);
-                    String result = tempA.fight();
-                    switch(result){
-                        case "c":
-                        Adventurer a =tempR.killAdventurer();
-                        this.Adventurers.remove(a);
-    
+    public boolean userMove() {
+        int[] offsetNorth = { 0, 1, 0 };// 1
+        int[] offsetSouth = { 0, -1, 0 };// 2
+        int[] offsetEast = { 0, 0, 1 };// 3
+        int[] offsetWest = { 0, 0, -1 };// 4
+        int[] offsetUp = { 1, 0, 0 };// 5
+        int[] offsetDown = { -1, 0, 0 };// 6
+        boolean success;
+        for (int i = 0; i < this.Adventurers.size(); i++) {
+            Adventurer tempA = this.Adventurers.get(i);
+            Room tempR = getRoomFromTemple(tempA.getCurrentPosition());
+            this.displayBoard();
+            try (Scanner myObj = new Scanner(System.in)) {
+                System.out.println("Choose your move: 1.Move 2.Search 3.Celebrate");
+                String choice = myObj.nextLine();
+                switch (choice) {
+                    //move
+                    case "1":
+                        System.out.println("Would you like to move 1.North 2.South 3.East 4.West 5.Up 6.Down");
+                        String choiceMove = myObj.nextLine();
+                        switch (choiceMove) {
+                            case "1":
+                                if (isValidMove(tempA.getCurrentPosition(), offsetNorth)) {
+                                    int[] newPos = addIds(tempA.getCurrentPosition(), offsetNorth);
+                                    tempA.setCurrentPosition(newPos);
+                                    success = true;
+                                } else {
+                                    System.out.println("Not a valid move!");
+                                    success = false;
+                                }
+                                break;
+                            case "2":
+                                if (isValidMove(tempA.getCurrentPosition(), offsetSouth)) {
+                                    int[] newPos = addIds(tempA.getCurrentPosition(), offsetSouth);
+                                    tempA.setCurrentPosition(newPos);
+                                    success = true;
+                                } else {
+                                    System.out.println("Not a valid move!");
+                                    success = false;
+                                }
+                                break;
+                            case "3":
+                                if (isValidMove(tempA.getCurrentPosition(), offsetEast)) {
+                                    int[] newPos = addIds(tempA.getCurrentPosition(), offsetEast);
+                                    tempA.setCurrentPosition(newPos);
+                                    success = true;
+                                } else {
+                                    System.out.println("Not a valid move!");
+                                    success = false;
+                                }
+                                break;
+                            case "4":
+                                if (isValidMove(tempA.getCurrentPosition(), offsetWest)) {
+                                    int[] newPos = addIds(tempA.getCurrentPosition(), offsetWest);
+                                    tempA.setCurrentPosition(newPos);
+                                    success = true;
+                                } else {
+                                    System.out.println("Not a valid move!");
+                                    success = false;
+                                }
+                                break;
+                            case "5":
+                                if (isValidMove(tempA.getCurrentPosition(), offsetUp)) {
+                                    int[] newPos = addIds(tempA.getCurrentPosition(), offsetUp);
+                                    tempA.setCurrentPosition(newPos);
+                                    return true;
+                                } else {
+                                    System.out.println("Not a valid move!");
+                                    success = false;
+                                }
+                                break;
+                            case "6":
+                                if (isValidMove(tempA.getCurrentPosition(), offsetDown)) {
+                                    int[] newPos = addIds(tempA.getCurrentPosition(), offsetDown);
+                                    tempA.setCurrentPosition(newPos);
+                                    success = true;
+                                } else {
+                                    System.out.println("Not a valid move!");
+                                    success = false;
+                                }
+                                break;
+                            default:
+                                System.out.println("Not a valid choice!");
+                                success = false;
+                                break;
+                        }
                         break;
-                        case "a":
-                        Creature c = tempR.killCreature();
-                        this.Creatures.remove(c);
+                    //search
+                    case "2":
+                        if(tempA.search()){
+                             Treasures tempT = tempR.getLoot();
+                             tempA.addLoot(tempT);
+                             tempA.addTreasure();
+                             success = true;
+                        }else{
+                            System.out.println("No treasure in the room!");
+                            success = false;
+                        }
                         break;
-                        case "t":
-                        System.out.println("Tie");
+                    //celebrate
+                    case "3":
+                        tempA.celebrate();
+                        success = true;
                         break;
-                        case "N":
-                        System.out.println("Avoided fight");
+                    default:
                         break;
                     }
                 }
             }
+            
+            return success;
+        }
+    
+    public void oneTurn() {
 
-        }else{
-            for(int i = 0; i < Adventurers.size(); i++){
+        // this.moveAdventurers();
+        boolean move = false;
+        while(move == false){
+            move = this.userMove();
+        }
+        ArrayList<Room> fightingRooms = this.checkFights();
+        if (fightingRooms.size() > 0) {
+            for (int i = 0; i < fightingRooms.size(); i++) {
+                Room tempR = fightingRooms.get(i);
+                // System.out.println(tempR.getAdventuresNames());
+                ArrayList<Adventurer> AdsInRoom = tempR.getAdventurers();
+                for (int j = 0; j < AdsInRoom.size(); j++) {
+                    Adventurer tempA = AdsInRoom.get(j);
+                    String result = tempA.fight();
+                    switch (result) {
+                        case "c":
+                            Adventurer a = tempR.killAdventurer();
+                            this.Adventurers.remove(a);
+
+                            break;
+                        case "a":
+                            Creature c = tempR.killCreature();
+                            this.Creatures.remove(c);
+                            break;
+                        case "t":
+                            System.out.println("Tie");
+                            break;
+                        case "N":
+                            System.out.println("Avoided fight");
+                            break;
+                    }
+                }
+            }
+
+        } else {
+            for (int i = 0; i < Adventurers.size(); i++) {
                 Adventurer tempA = Adventurers.get(i);
                 Boolean found = tempA.search();
-                if(found){
-                    //add treasure to inventory
+                if (found) {
+                    // add treasure to inventory
                     tempA.addTreasure();
                 }
             }
         }
-        
+    
+
         this.moveCreatures();
         ArrayList<Room> fightingRoomsC = this.checkFights();
-        if(fightingRooms.size() > 0){
-            for(int i = 0; i < fightingRoomsC.size(); i++){
+        if (fightingRooms.size() > 0) {
+            for (int i = 0; i < fightingRoomsC.size(); i++) {
                 Room tempR = fightingRoomsC.get(i);
                 // System.out.println(tempR.getAdventuresNames());
                 ArrayList<Adventurer> AdsInRoom = tempR.getAdventurers();
-                for(int j = 0; j< AdsInRoom.size(); j++){
+                for (int j = 0; j < AdsInRoom.size(); j++) {
                     Adventurer tempA = AdsInRoom.get(j);
                     String result = tempA.fight();
-                    switch(result){
+                    switch (result) {
                         case "c":
-                        Adventurer a =tempR.killAdventurer();
-                        this.Adventurers.remove(a);
-    
-                        break;
+                            Adventurer a = tempR.killAdventurer();
+                            this.Adventurers.remove(a);
+
+                            break;
                         case "a":
-                        Creature c = tempR.killCreature();
-                        this.Creatures.remove(c);
-                        break;
+                            Creature c = tempR.killCreature();
+                            this.Creatures.remove(c);
+                            break;
                         case "t":
-                        System.out.println("Tie");
-                        break;
+                            System.out.println("Tie");
+                            break;
                         case "N":
-                        System.out.println("Avoided fight");
-                        break;
+                            System.out.println("Avoided fight");
+                            break;
                     }
                 }
             }
 
         }
-       
+
+    }
+    public String getUserName(){
+        try (Scanner scanner = new Scanner(System.in)) {
+            System.out.println("What is your Adventurers name?");
+            return scanner.nextLine();
+        }
+    }
+    public void setAdventurer() {
+        int[] startP = { 0, 1, 1 };
+        try (Scanner scan = new Scanner(System.in)) {
+            System.out.println("Choose your adventurer!");
+            System.out.println("1. Runner");
+            System.out.println("2.Brawler");
+            System.out.println("3. Thief");
+            System.out.println("4.Sneaker");
+            int choice = scan.nextInt();
+            String name = this.getUserName();
+            switch(choice){
+                case 1:
+                //runner
+                Adventurer a = new Runner(name, "Runner", startP);
+                this.Adventurers.add(a);
+                break;
+                case 2:
+                //brawler
+                Adventurer b = new Brawler(name, "Brawler", startP);
+                this.Adventurers.add(b);
+                break;
+                case 3:
+                //thief
+                Adventurer t = new Thief(name, "Thief", startP);
+                this.Adventurers.add(t);
+                break;
+                case 4:
+                //sneaker
+                Adventurer s = new Sneaker(name, "Sneaker", startP);
+                this.Adventurers.add(s);
+                break;
+            }
+
+        }
+        
+        
     }
 }

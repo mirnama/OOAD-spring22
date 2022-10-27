@@ -1,10 +1,13 @@
 package Search;
 import java.util.Random;
-public class Careless implements Search {
-    private int minDiceRoll = 10;
-
+public class Careful implements Search {
+    private int minDiceRoll = 4;
+    private double avoidTrap = .5;
     public int getMinDiceRoll(){
         return this.minDiceRoll;
+    }
+    public double getAvoidTrap(){
+        return this.avoidTrap;
     }
     @Override
     public Boolean search(){
