@@ -4,7 +4,8 @@ public class Main2 {
     public static void main(String[] args){
     Turn t2 = new Turn();
     Publication p = new Publication(t2);
-    t2.startGame();
+    FactoryMake f = new FactoryMake();
+    // t2.startGame();
     int round = 0;
     Boolean endGame = false;
     do

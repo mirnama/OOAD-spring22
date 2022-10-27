@@ -2,7 +2,7 @@ package Search;
 import java.util.Random;
 
 public class Quick implements Search{
-    private int minDiceRoll = 9;
+    private int minDiceRoll = 6;
     private double skipSearch = .33;
     public int getMinDiceRoll(){
         return this.minDiceRoll;

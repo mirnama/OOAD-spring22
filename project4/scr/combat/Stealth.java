@@ -10,6 +10,12 @@ public class Stealth implements Combat{
     public double getAvoidFight(){
         return this.avoidFight;
     }
+    public boolean avoidDamage(){
+        Random r = new Random();
+        if(r.nextInt(100) % 2 == 0){
+            return true;
+        }else{return false;}
+    }
     @Override
     public String fight(){
         Random r = new Random();

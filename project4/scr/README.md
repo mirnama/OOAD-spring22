@@ -12,3 +12,4 @@ This is a game where there are four adventurers of different types travel around
 monsters. 
 There are three different types of Monsters: blinkers, orbiters, and seekers. The goal of the Adventurers is to find 
 enough treasure or kill all the 12 monsters located around the temple.
+In this Project we added multiple uses of design pattern. Our InerfaceCommand is a command Pattern, while we created a new factory pattern to great the game.

@@ -1,13 +1,19 @@
 package Adventurer;
 import Logger.Logger;
 import Search.*;
-import Room.*;
+// import Room.*;
 import combat.*;
 import Search.*;
+import Room.Treasures;
+import java.util.ArrayList;
+import Celebration.Celebration;
 
 
 public abstract class Adventurer implements Logger {
     private int[] currentPosition= {0,0,0};
+    private ArrayList<Treasures> Loot;
+    private Search s;
+    private Combat c;
     private String adventurerName;
     private String type;
     private int treasure=0;
@@ -44,6 +50,7 @@ public abstract class Adventurer implements Logger {
     public void takeDamage(){
         this.damage++;
     }
+    
     public String fight(){return "";}
     public Boolean search(){return false;}
 
@@ -58,6 +65,18 @@ public abstract class Adventurer implements Logger {
     public String getAdventurerName(){
         return this.adventurerName;
     }
-   
+    public void addLoot(Treasures t){
+        this.Loot.add(t);
+    }
+   public Boolean allLootTypes(){
+        long count = this.Loot.stream().distinct().count();
+        if(count == 6){
+            return true;
+        }
+        else{return false;}
+   }
+public void celebrate() {
+}
+
     
 }
