@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="d4fe07ff-a328-45a6-b27a-4e3a35e6af72" name="Changes" comment="latest changes">
+      <change afterPath="$PROJECT_DIR$/../project4.2/scr/Adventurer/Adventurer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../project4.2/scr/Adventurer/Brawler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../project4.2/scr/Adventurer/Runner.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../project4.2/scr/Adventurer/Sneaker.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../project4.2/scr/Adventurer/Thief.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../project4.2/scr/Celebration/Celebration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../project4.2/scr/Creature/Blinker.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../project4.2/scr/Creature/Creature.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../project4.2/scr/Creature/Orbiter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../project4.2/scr/Creature/Seeker.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../project4.2/scr/Logger/Logger.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../project4.2/scr/Logger/Observer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../project4.2/scr/Logger/Publication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../project4.2/scr/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../project4.2/scr/Main2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../project4.2/scr/OOADProject3.12drawio.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../project4.2/scr/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../project4.2/scr/Room/Armor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../project4.2/scr/Room/Gem.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../project4.2/scr/Room/Portal.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../project4.2/scr/Room/Potion.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../project4.2/scr/Room/Room.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../project4.2/scr/Room/Sword.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../project4.2/scr/Room/Trap.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../project4.2/scr/Room/Treasures.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../project4.2/scr/Room/Turn.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../project4.2/scr/Search/Careful.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../project4.2/scr/Search/Careless.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../project4.2/scr/Search/Quick.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../project4.2/scr/Search/Search.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../project4.2/scr/Treasure.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../project4.2/scr/combat/Combat.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../project4.2/scr/combat/Expert.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../project4.2/scr/combat/Stealth.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../project4.2/scr/combat/Trained.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../project4.2/scr/combat/Untrained.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../project4.2/scr/project4_1SD-0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../project4.2/scr/project4_1SD.puml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager" show_ignored="true" />
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+        <option value="UML Class" />
+        <option value="UML Sequence" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+    <option name="SWAP_SIDES_IN_COMPARE_BRANCHES" value="true" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2FmI5xgrurgknejQy9jsjCr6lTg" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+    <option name="showMembers" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;DefaultPlantUmlFileTemplate&quot;: &quot;UML Sequence&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/mirnadolunay/Downloads/OOAD-spring22/project3&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.ide.settings.uml&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;ChangesTree.GroupingKeys&quot;: [
+      &quot;directory&quot;,
+      &quot;module&quot;
+    ]
+  }
+}</component>
+  <component name="RunManager" selected="Application.Main2">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="project3" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main2" />
+      <module name="project3" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Turn" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Turn" />
+      <module name="project3" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main2" />
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Turn" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d4fe07ff-a328-45a6-b27a-4e3a35e6af72" name="Changes" comment="" />
+      <created>1665090653492</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1665090653492</updated>
+      <workItem from="1665090655216" duration="15769000" />
+      <workItem from="1665422854224" duration="11900000" />
+      <workItem from="1666036641603" duration="13918000" />
+      <workItem from="1666406583428" duration="100000" />
+      <workItem from="1666406860176" duration="70000" />
+    </task>
+    <task id="LOCAL-00001" summary="m">
+      <created>1665286815532</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1665286815532</updated>
+    </task>
+    <task id="LOCAL-00002" summary="added Logger, Observer, and publication">
+      <created>1665302033303</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1665302033303</updated>
+    </task>
+    <task id="LOCAL-00003" summary="added Treasures">
+      <created>1665420077668</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1665420077668</updated>
+    </task>
+    <task id="LOCAL-00004" summary="added Treasures">
+      <created>1665420640914</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1665420640915</updated>
+    </task>
+    <task id="LOCAL-00005" summary="added Treasures">
+      <created>1665420992714</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1665420992714</updated>
+    </task>
+    <task id="LOCAL-00006" summary="added project3 diagram">
+      <created>1665422999618</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1665422999618</updated>
+    </task>
+    <task id="LOCAL-00007" summary="latest changes">
+      <created>1666067350426</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1666067350426</updated>
+    </task>
+    <task id="LOCAL-00008" summary="latest changes">
+      <created>1666072235251</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1666072235251</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="MirnaN" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="m" />
+    <MESSAGE value="added Logger, Observer, and publication" />
+    <MESSAGE value="added Treasures" />
+    <MESSAGE value="added project3 diagram" />
+    <MESSAGE value="latest changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="latest changes" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>
