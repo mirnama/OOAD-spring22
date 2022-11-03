@@ -2,71 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d4fe07ff-a328-45a6-b27a-4e3a35e6af72" name="Changes" comment="latest changes">
-      <change beforePath="$PROJECT_DIR$/../out/production/project2.2/Adventurer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/project2.2/Blinker.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/project2.2/Brawler.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/project2.2/Creature.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/project2.2/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/project2.2/Main2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/project2.2/MultipleGameRun.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/project2.2/OOADProject2_2UMLDiagram.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/project2.2/Orbiter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/project2.2/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/project2.2/Room.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/project2.2/Runner.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/project2.2/Seeker.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/project2.2/SingleGameRun.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/project2.2/Sneaker.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/project2.2/Thief.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/project2.2/Turn.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../project4.2/out/production/project4.2/Adventurer/Adventurer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../project4.2/out/production/project4.2/Adventurer/Brawler.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../project4.2/out/production/project4.2/Adventurer/Runner.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../project4.2/out/production/project4.2/Adventurer/Sneaker.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../project4.2/out/production/project4.2/Adventurer/Thief.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../project4.2/out/production/project4.2/Celebration/Celebration.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../project4.2/out/production/project4.2/Celebration/Dance.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../project4.2/out/production/project4.2/Celebration/Jump.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../project4.2/out/production/project4.2/Celebration/Shout.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../project4.2/out/production/project4.2/Celebration/Spin.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../project4.2/out/production/project4.2/Creature/Blinker.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../project4.2/out/production/project4.2/Creature/Creature.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../project4.2/out/production/project4.2/Creature/Orbiter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../project4.2/out/production/project4.2/Creature/Seeker.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../project4.2/out/production/project4.2/Logger/Logger.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../project4.2/out/production/project4.2/Logger/Observer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../project4.2/out/production/project4.2/Logger/Publication.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../project4.2/out/production/project4.2/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../project4.2/out/production/project4.2/Main2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../project4.2/out/production/project4.2/OOADProject3.12drawio.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../project4.2/out/production/project4.2/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../project4.2/out/production/project4.2/Room/Armor.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../project4.2/out/production/project4.2/Room/Gem.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../project4.2/out/production/project4.2/Room/Portal.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../project4.2/out/production/project4.2/Room/Potion.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../project4.2/out/production/project4.2/Room/Room.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../project4.2/out/production/project4.2/Room/Sword.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../project4.2/out/production/project4.2/Room/Trap.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../project4.2/out/production/project4.2/Room/TreasureType.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../project4.2/out/production/project4.2/Room/Treasures.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../project4.2/out/production/project4.2/Room/Turn.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../project4.2/out/production/project4.2/Room/TurnTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../project4.2/out/production/project4.2/Search/Careful.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../project4.2/out/production/project4.2/Search/Careless.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../project4.2/out/production/project4.2/Search/CarelessTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../project4.2/out/production/project4.2/Search/Quick.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../project4.2/out/production/project4.2/Search/Search.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../project4.2/out/production/project4.2/Treasure.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../project4.2/out/production/project4.2/combat/Combat.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../project4.2/out/production/project4.2/combat/Expert.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../project4.2/out/production/project4.2/combat/Stealth.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../project4.2/out/production/project4.2/combat/Trained.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../project4.2/out/production/project4.2/combat/Untrained.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../project4.2/out/production/project4.2/project4.2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../project4.2/out/production/project4.2/project4_1SD-0.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../project4.2/out/production/project4.2/project4_1SD.puml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../project4.2/output1.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../project4.2/project4.2.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project4.2/out/production/project4.2/Adventurer/Adventurer.class" beforeDir="false" afterPath="$PROJECT_DIR$/../project4.2/out/production/project4.2/Adventurer/Adventurer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project4.2/output1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../project4.2/output1.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -177,6 +115,8 @@
       <workItem from="1666406583428" duration="100000" />
       <workItem from="1666406860176" duration="70000" />
       <workItem from="1666854465647" duration="13000" />
+      <workItem from="1667447065426" duration="26000" />
+      <workItem from="1667447551653" duration="55000" />
     </task>
     <task id="LOCAL-00001" summary="m">
       <created>1665286815532</created>
