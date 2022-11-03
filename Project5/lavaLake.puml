@@ -1,0 +1,74 @@
+
+@startuml
+'https://plantuml.com/activity-diagram-beta
+
+start
+:Start game;
+:Creat Modes;
+:Check the surrounding;
+
+
+
+repeat
+:Move player around;
+':Move Creatures to room;
+  if ( Lava land) is (No) then
+    :Be careful and far from lava;
+    if (The End Destination) is (yes) then
+      :Player Won;
+      stop
+    else (no)
+
+    endif
+  else (Yes)
+  :Search for a Rode to next;
+  if (Player find treasure) is (No) then
+    :keep walking and searching;
+  else (yes)
+    :The Player Collect it and gain points;
+    if (Is the Player too Close to Hidden Mode) is (yes) then
+    if (Hidden Mode?) is (Lava dragon) then
+      :Lava dragon;
+      :Fight;
+'      :Lava dragon weaken;
+      if (Lava dragon weaken?) is (yes) then
+        :Lava dragon defeated;
+        :Collect the Spoils;
+        :Make Arms to protect the Player;
+      else (no)
+        :Drop Dragon teeth;
+        if (Hit the Player?) is (yes) then
+          :Player lose point;
+        else (no)
+          :player make lava sword;
+        endif
+
+      endif
+    else (lava piranha)
+      :The lava piranha;
+      if (jump out of the lava to attack the player?) is (yes) then
+        :Fight;
+        if (Player killed the piranha?) is (yes) then
+          :Collect Piranha Scales;
+          : create Lava Boots;
+        else (no)
+          :false;
+        endif
+      else (no)
+        :Run to Safety;
+      endif
+    endif
+      :Continue walking;
+    else (no)
+     :Continue;
+    endif
+
+
+if (The Player Find way out) then (No)
+
+  else (Yes)
+  :Player Won;
+  stop
+
+
+@enduml
