@@ -8,32 +8,32 @@ actor Player
 Player -> Lake: Move player around
 
 activate Lake
-Modes -> Lake: Move Creature to the room
-group Play Game until End conditions is True
-Lake -> "Check the surrounding": is there any Modes close by?
+Mods -> Lake: Move Mods to the room
+group Play Game until User Finished Playing
+Lake -> "Check the surrounding": is there any Mods close by?
 "Check the surrounding" --> Lake: Yes
-Lake -> Fight: Fight the Creature
+Lake -> Fight: Fight the Mod
 
 Fight -> "Check Mode Type": Is The Player weapon Stronger than Creature Weapon?
 "Check Mode Type" --> Fight: Yes
-Fight -> Defeated: Creature Defeated
+Fight -> Defeated: Mod Defeated
 activate Defeated
-Defeated --> Lake: Remove Creature from the room
+Defeated --> Lake: Remove Mod from the room
 destroy Defeated
 "Check Mode Type" --> Fight: No
 Fight -> Lake:  the Player got damage points or Avoid the Attack and collect \n dragon teeth, piranha scales to Creat weapons
-"Empty Room" --> Lake: Yes
+"Check the surrounding" --> Lake: Yes
 
-Lake -> Search: Search For Treasure
-Search -> Treasure: Any Treasure Avalibale
-Treasure --> Search: Yes
-Search -> Adventurer: Collect Treasure
+Lake -> "Search for a Mobs/Loots": Search For Treasure/Loots to Collect
+"Search for a Mobs/Loots" -> Treasure: Any Treasure Available
+Treasure --> "Search for a Mobs/Loots": Yes
+"Search for a Mobs/Loots" -> Player: Collect Treasure
 
 
 
 end
-deactivate Room
-destroy Room
+deactivate Lake
+destroy Lake
 
-Room ->" User": Done
+Lake ->" User": Done
 @enduml
