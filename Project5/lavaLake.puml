@@ -4,7 +4,7 @@
 
 start
 :Start game;
-:Creat Modes;
+:Creat Mobs;
 :Check the surrounding;
 
 
@@ -12,35 +12,50 @@ start
 repeat
 :Move player around;
 ':Move Creatures to room;
-  if ( Lava land) is (No) then
+  if ( Lava Lake) is (No) then
     :Be careful and far from lava;
-    if (The End Destination) is (yes) then
-      :Player Won;
-      stop
-    else (no)
 
-    endif
   else (Yes)
-  :Search for a Rode to next;
+  :Search for a Mobs/Loots to next;
   if (Player find treasure) is (No) then
     :keep walking and searching;
   else (yes)
-    :The Player Collect it and gain points;
-    if (Is the Player too Close to Hidden Mode) is (yes) then
-    if (Hidden Mode?) is (Lava dragon) then
+    :The Player Collect it and gain Items;
+    if (Is the Player too Close to Hidden Mob) is (yes) then
+    if (Hidden Mob?) is (Lava dragon) then
       :Lava dragon;
-      :Fight;
-'      :Lava dragon weaken;
-      if (Lava dragon weaken?) is (yes) then
-        :Lava dragon defeated;
-        :Collect the Spoils;
-        :Make Arms to protect the Player;
-      else (no)
-        :Drop Dragon teeth;
-        if (Hit the Player?) is (yes) then
-          :Player lose point;
+      if (position?) is (Flying) then
+        :true;
+        if (Is the player near?) is (yes) then
+          :Shoot Lava;
+          if (Hit the Player hits ?) is (yes) then
+            :Player git Damage;
+          else (no)
+            :Continue;
+          endif
         else (no)
-          :player make lava sword;
+          :false;
+        endif
+      else (Sleeping)
+        :false;
+      endif
+
+'      :Lava dragon weaken;
+      if (Player has Dragon Sward?) is (yes) then
+        if (Player hits the Dragon?) is (yes) then
+          :Lava dragon defeated;
+          :Collect the Spoils;
+        else (no)
+          :false;
+        endif
+
+
+
+      else (no)
+        if (Hit the Player Hits the dragon with weapon?) is (yes) then
+          :Dragon take Damage;
+        else (no)
+          :False;
         endif
 
       endif
@@ -50,12 +65,16 @@ repeat
         :Fight;
         if (Player killed the piranha?) is (yes) then
           :Collect Piranha Scales;
-          : create Lava Boots;
+          if (Player 4 OR More Prianha scales?) is (yes) then
+            :Creat Lava Boots;
+          else (no)
+            :Continue Searching;
+          endif
         else (no)
-          :false;
+          :Player Take Damage;
         endif
       else (no)
-        :Run to Safety;
+        :Continue;
       endif
     endif
       :Continue walking;
